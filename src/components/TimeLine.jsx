@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
+import VanillaTilt from "vanilla-tilt";
+
 
 function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text }) {
     console.log('hola')
   const divRef = useRef(null);
   const [height, setHeight] = useState(0);
+  const tiltRef = useRef(null);
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
@@ -12,6 +15,13 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
     });
 
     if (divRef.current) observer.observe(divRef.current);
+
+    VanillaTilt.init(tiltRef.current, {
+      max: 25,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.5,
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -24,15 +34,18 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
           style={{ height: `${height * 1.1}px` }}
         >
           {isLeft && (
-            <div
-              ref={divRef}
-              className="bg-[#6F0B45] w-3/4 absolute -top-8 rounded-lg p-4 shadow-lg shadow-pink-500/50"
-            >
-              <h3 className="text-lg font-bold">{title}</h3>
-              <h4 className="mb-3 font-serif">{subTitle}</h4>
-
-              <p className="text-xs text-gray-400">{text}</p>
-            </div>
+             <div
+             ref={divRef}
+             className="w-3/4 absolute -top-8 bg-transparent"
+           >
+             <div className="p-4 rounded-lg shadow-2xl shadow-[#6F0B45] bg-gradient-to-b from-[#6F0B45] via-[#A3205D] to-[#D63D80]" ref={tiltRef}>
+             <h3 className="text-lg font-bold">{title}</h3>
+             <h4 className="mb-3 font-serif">{subTitle}</h4>
+ 
+             <p className="text-xs text-gray-300">{text}</p>
+             </div>
+             
+           </div>
           )}
         </div>
 
@@ -55,13 +68,17 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
         >
           {isRight && (
             <div
-              ref={divRef}
-              className="bg-[#6F0B45] w-3/4 absolute -top-10 rounded-lg"
-            >
-              <h3>{title}</h3>
-              <h4>{subTitle}</h4>
-              <p className="text-xs">{text}</p>
+            ref={divRef}
+            className="w-3/4 absolute -top-8 bg-transparent"
+          >
+            <div className="p-4 rounded-lg shadow-2xl shadow-[#681798] bg-gradient-to-b from-[#681798] to-[#a855f7]" ref={tiltRef}>
+            <h3 className="text-lg font-bold">{title}</h3>
+            <h4 className="mb-3 font-serif">{subTitle}</h4>
+
+            <p className="text-xs text-gray-300">{text}</p>
             </div>
+            
+          </div>
           )}
         </div>
       </div>

@@ -151,7 +151,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full">
+      <section className="w-full mb-32">
         <div className="flex items-center justify-center">
           <div className="w-1/2  h-full flex-col items-center justify-center px-8 bg-[#02040ad3] m-8 py-4 rounded-lg backdrop-blur-3xl">
             <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
@@ -182,6 +182,10 @@ function App() {
       </section>
 
       <section className="w-full flex items-center justify-center flex-col">
+      <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
+            <h2 className="text-2xl font-extrabold mb-2 max-[521px]:text-3xl max-[483px]:text-5xl text-center">
+              About Me
+            </h2>
         <TimeLine
           isRight={true}
           title="Semsa"
