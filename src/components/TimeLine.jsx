@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
 
-function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text }) {
+function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text, list=[] }) {
     console.log('hola')
   const divRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -36,13 +36,31 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
           {isLeft && (
              <div
              ref={divRef}
-             className="w-3/4 absolute -top-8 bg-transparent"
+             className="w-3/4 absolute top-0 bg-transparent"
            >
              <div className="p-4 rounded-lg shadow-2xl shadow-[#6F0B45] bg-gradient-to-b from-[#6F0B45] via-[#A3205D] to-[#D63D80]" ref={tiltRef}>
              <h3 className="text-lg font-bold">{title}</h3>
              <h4 className="mb-3 font-serif">{subTitle}</h4>
- 
-             <p className="text-xs text-gray-300">{text}</p>
+              {
+              list.map((item) => {
+                return (
+                  <>
+                  <p key={item.name} className="text-xs text-gray-300 my-3 font-bold">{item.name}</p>
+                  {
+                    item.text.map((text)=> {
+                      return (                    
+                      <>
+                      <p className="text-xs text-gray-300 leading-none">{`•`} {text}</p>
+                      <br />
+                      </>)
+                      
+                    })
+                  }
+                  </>
+                )
+              })
+             }
+
              </div>
              
            </div>
@@ -51,7 +69,7 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
 
         <div
           className="w-1/5 flex flex-col items-center justify-center"
-          style={{ height: `${height * 2}px` }}
+          style={{ height: `${height * 1.5}px` }}
         >
           <div className="bg-white h-[10%] w-[5px]"></div>
 
@@ -69,13 +87,31 @@ function TimeLine({ image, isRight = false, isLeft=false, title, subTitle, text 
           {isRight && (
             <div
             ref={divRef}
-            className="w-3/4 absolute -top-8 bg-transparent"
+            className="w-3/4 absolute top-0 bg-transparent"
           >
             <div className="p-4 rounded-lg shadow-2xl shadow-[#681798] bg-gradient-to-b from-[#681798] to-[#a855f7]" ref={tiltRef}>
             <h3 className="text-lg font-bold">{title}</h3>
             <h4 className="mb-3 font-serif">{subTitle}</h4>
 
-            <p className="text-xs text-gray-300">{text}</p>
+            {
+              list.map((item) => {
+                return (
+                  <>
+                  <p key={item.name} className="text-xs text-gray-300 my-3 font-bold">{item.name}</p>
+                  {
+                    item.text.map((text)=> {
+                      return (                    
+                      <>
+                      <p className="text-xs text-gray-300 leading-none">{`•`} {text}</p>
+                      <br />
+                      </>)
+                      
+                    })
+                  }
+                  </>
+                )
+              })
+             }
             </div>
             
           </div>
