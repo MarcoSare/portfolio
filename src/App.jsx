@@ -6,6 +6,22 @@ import { FaHouse, FaUserTie, FaFileCode, FaEnvelope } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
 import graph from "./assets/images/graph.png";
 import graph1 from "./assets/images/graph (1).png";
+import node_img from "./assets/images/nodejs.svg";
+import js_img from "./assets/images/js.svg";
+import html_img from "./assets/images/html.svg";
+import css_img from "./assets/images/css.svg";
+import tailwind_img from "./assets/images/tailwind.svg";
+import flutter_img from "./assets/images/flutter.svg";
+import php_img from "./assets/images/php.svg";
+import java_img from "./assets/images/java.svg";
+import mysql_img from "./assets/images/mysql.svg";
+import aws_img from "./assets/images/aws.svg";
+import mongo_img from "./assets/images/mongodb.svg";
+import firebase_img from "./assets/images/firebase.svg";
+
+
+
+
 import "./App.css";
 import TimeLine from "./components/TimeLine";
 
@@ -260,71 +276,128 @@ function App() {
         })}
       </section>
 
-      <section className="w-full flex items-center justify-center flex-col">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <div class="relative h-48">
+      <section className="w-full flex items-center justify-center flex-col bg-[#02040ad3]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8 p-4 w-full max-w-[1440px]">
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl ">
+            <div className="relative h-40">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Image 1"
-                class="object-cover w-full h-full"
+                src={node_img}
+                alt="nodejs"
+                className="object-contain w-full h-full shadow-lg shadow-green-700 rounded-xl"
               />
-            </div>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold">Card Title 1</h3>
-              <p class="text-gray-600">
-                Some description or content for the card.
-              </p>
             </div>
           </div>
 
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <div class="relative h-48">
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Image 2"
-                class="object-cover w-full h-full"
+                src={js_img}
+                alt="js"
+                className="object-fill w-full h-full shadow-lg shadow-yellow-400 rounded-xl"
               />
-            </div>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold">Card Title 2</h3>
-              <p class="text-gray-600">
-                Some description or content for the card.
-              </p>
             </div>
           </div>
 
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <div class="relative h-48">
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Image 3"
-                class="object-cover w-full h-full"
+                src={html_img}
+                alt="html"
+                className="object-fill w-full h-full shadow-lg shadow-orange-500 rounded-xl"
               />
-            </div>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold">Card Title 3</h3>
-              <p class="text-gray-600">
-                Some description or content for the card.
-              </p>
             </div>
           </div>
 
-          <div class="bg-white border rounded-lg shadow-lg overflow-hidden">
-            <div class="relative h-48">
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
               <img
-                src="https://via.placeholder.com/150"
-                alt="Image 4"
-                class="object-cover w-full h-full"
+                src={css_img}
+                alt="css"
+                className="object-fill w-full h-full shadow-lg shadow-sky-500 rounded-xl"
               />
             </div>
-            <div class="p-4">
-              <h3 class="text-xl font-semibold">Card Title 4</h3>
-              <p class="text-gray-600">
-                Some description or content for the card.
-              </p>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
+              <img
+                src={tailwind_img}
+                alt="flutter"
+                className="object-fill w-full h-full shadow-lg shadow-blue-400 rounded-xl"
+              />
             </div>
           </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
+              <img
+                src={flutter_img}
+                alt="flutter"
+                className="object-fill w-full h-full shadow-lg shadow-sky-600 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className="relative h-48">
+              <img
+                src={php_img}
+                alt="php"
+                className="object-fill w-full h-full shadow-lg shadow-purple-600 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className=" bg-transparent relative h-48">
+              <img
+                src={java_img}
+                alt="java"
+                className="object-fill w-full h-full shadow-lg shadow-red-600 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className=" bg-transparent relative h-48">
+              <img
+                src={mysql_img}
+                alt="mysql"
+                className="object-fill w-full h-full shadow-lg shadow-yellow-600 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className=" bg-transparent relative h-48">
+              <img
+                src={mongo_img}
+                alt="mongo"
+                className="object-fill w-full h-full shadow-lg shadow-emerald-800 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className=" bg-transparent relative h-48">
+              <img
+                src={firebase_img}
+                alt="firebase"
+                className="object-fill w-full h-full shadow-lg shadow-yellow-800 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl">
+            <div className=" bg-transparent relative h-48">
+              <img
+                src={aws_img}
+                alt="aws"
+                className="object-fill w-full h-full shadow-lg shadow-orange-600 rounded-xl"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
     </>
