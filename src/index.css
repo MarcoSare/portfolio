@@ -57,3 +57,14 @@
   .btn:hover{
     background-position: 0 0;
   }
+
+  .img-skill {
+    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.1)) 
+            drop-shadow(0 0 18px rgba(162, 0, 255, 0.3));
+}
+
+.nube {
+  border-radius: 50%/50%;
+}
+
+
