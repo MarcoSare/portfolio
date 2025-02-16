@@ -157,7 +157,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full relative mt-[60px] mb-16">
+      <section className="w-full relative mt-[60px] mb-16 px-[64px] max-[900px]:px-[32px] max-[483px]:px-[16px] ">
         <div className="absolute inset-0 flex items-center max-[483px]:items-start  justify-center bg-[#02040ad3] blur-lg">
           <div className="w-full max-w-[1440px] h-[700px] mx-auto relative">
             <div className="">
@@ -171,7 +171,7 @@ function App() {
 
         <div className="relative w-full max-w-[1440px] h-[700px] max-[900px]:h-auto mx-auto z-10">
           <div className="w-full h-full flex items-start justify-between max-[900px]:flex-col">
-            <div className="w-1/2 max-[900px]:w-full max-[900px]:px-40 max-[648px]:px-24 p-4 h-full flex items-center justify-start px-8">
+            <div className="w-1/2 max-[900px]:w-full h-full flex items-center justify-start p-[64px] max-[900px]:p-32px] max-[483px]:p-[16px] ">
               <div className="w-full">
                 <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4"></div>
                 <h1 className="text-5xl font-extrabold mb-2 max-[521px]:text-3xl max-[483px]:text-5xl">
@@ -242,9 +242,9 @@ function App() {
 
       <section className="w-full mb-32">
         <div className="flex items-center justify-center">
-          <div className="w-1/2  h-full flex-col items-center justify-center px-8  m-8 py-4 backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg rounded-2xl p-8">
+          <div className="w-1/2 max-[900px]:w-2/3 max-[483px]:w-4/5 h-full flex-col items-center justify-center backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg rounded-2xl px-[64px] max-[900px]:px-[32px] max-[483px]:px-[16px]">
             <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
-            <h2 className="text-2xl font-extrabold mb-2 max-[521px]:text-3xl max-[483px]:text-5xl text-center">
+            <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
               About Me
             </h2>
             <p className="text-gray-200 mb-2 text-lg leading-relaxed">
@@ -270,10 +270,10 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full flex items-center justify-center flex-col">
+      <section className="w-full flex items-center justify-center flex-col px-6 md:px-8">
         <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
-        <h2 className="text-2xl font-extrabold mb-2 max-[521px]:text-3xl max-[483px]:text-5xl text-center">
-          About Me
+        <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
+              About Me
         </h2>
         {history.map((item, index) => {
           return (
@@ -288,8 +288,13 @@ function App() {
         })}
       </section>
 
-      <section className="w-full flex items-center justify-center flex-col bg-[#02040ad3]">
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8 p-4 w-full max-w-[1440px]">
+      <section className="w-full flex items-center justify-center flex-col bg-[#02040ad3] py-[128px] max-[900px]:py-[64px] max-[483px]:py-[32px]">
+      <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
+      <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
+              Skills
+        </h2>
+
+        <div className="grid grid-cols-1 max-[383px]:grid-cols-1 max-[540px]:grid-cols-2 max-[768px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6 gap-[32px] p-4 w-full max-w-[1440px] px-[64px] max-[900px]:px-[32px] max-[483px]:px-[16px]">
           <div className="bg-transparent  overflow-hidden flex items-center justify-center rounded-xl ">
             <div className="relative h-40">
               <img
