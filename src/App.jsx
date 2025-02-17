@@ -2,7 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaHouse, FaUserTie, FaFileCode, FaEnvelope } from "react-icons/fa6";
+import {
+  FaHouse,
+  FaUserTie,
+  FaFileCode,
+  FaEnvelope,
+  FaGithub,
+} from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
 import graph from "./assets/images/graph.png";
 import graph1 from "./assets/images/graph (1).png";
@@ -29,10 +35,7 @@ import king_img from "./assets/images/king_style.png";
 import auth_img from "./assets/images/auth_flutter.png";
 import you_movie_img from "./assets/images/you_movie.png";
 import calendar_img from "./assets/images/calendar.png";
-
-
-
-
+import SelectLang from "./components/SelectLang";
 
 import "./App.css";
 import TimeLine from "./components/TimeLine";
@@ -129,10 +132,12 @@ function App() {
               <span>Contact</span>
             </li>
           </ul>
-          <div>
-          <button class="bg-transparent border border-[#681798] shadow-md shadow-[#981792] px-8 py-2 rounded-lg cursor-pointer hover:bg-[#981792]">
-            Donwload CV
-          </button>
+          <div className="flex justify-center items-center">
+            
+          <SelectLang/>
+            <button class="bg-transparent border border-[#681798] shadow-md shadow-[#981792] px-8 py-2 rounded-lg cursor-pointer hover:bg-[#981792]">
+              Donwload CV
+            </button>
           </div>
         </div>
       </header>
@@ -273,7 +278,7 @@ function App() {
       <section className="w-full flex items-center justify-center flex-col px-6 md:px-8">
         <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
         <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
-              About Me
+          About Me
         </h2>
         {history.map((item, index) => {
           return (
@@ -289,9 +294,9 @@ function App() {
       </section>
 
       <section className="w-full flex items-center justify-center flex-col bg-[#02040ad3] py-[128px] max-[900px]:py-[64px] max-[483px]:py-[32px]">
-      <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
-      <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
-              Skills
+        <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
+        <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
+          Skills
         </h2>
 
         <div className="grid grid-cols-1 max-[383px]:grid-cols-1 max-[540px]:grid-cols-2 max-[768px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6 gap-[32px] p-4 w-full max-w-[1440px] px-[64px] max-[900px]:px-[32px] max-[483px]:px-[16px]">
@@ -417,15 +422,16 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full flex items-center justify-center flex-col">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4 w-full max-w-[1440px]">
+      <section className="w-full flex items-center justify-center flex-col py-[128px] max-[900px]:py-[64px] max-[483px]:py-[32px]">
+        <div className="h-[5px] rounded-2xl w-1/3 bg-white mb-4 mx-auto"></div>
+        <h2 className="text-3xl font-extrabold mb-2 max-[521px]:text-2xl max-[483px]:text-2xl text-center">
+          Projects
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-[32px] w-full max-w-[1440px] px-[64px] max-[900px]:px-[32px] max-[483px]:px-[16px]">
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={beauty_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={beauty_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -434,9 +440,47 @@ function App() {
                 </h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Beauty is a responsive landing page for natural beauty cosmetic products.
+                Beauty is a responsive landing page for natural beauty cosmetic
+                products.
               </p>
-              
+
+              <div className="w-full flex items-center justify-start">
+                <div className="flex items-center justify-start">
+                  <div className="m-2">
+                    <img src={html_img} alt="html" className="h-10 w-10" />
+                  </div>
+
+                  <div className="m-2">
+                    <img src={css_img} alt="css" className="h-10 w-10" />
+                  </div>
+
+                  <div className="m-2">
+                    <img src={js_img} alt="js" className="h-10 w-10" />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-end w-1/2">
+                  <FaGithub className="h-8 w-8" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
+            <a href="#">
+              <img className="rounded-t-lg" src={xbox_img} alt="beauty" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  Beauty responsive site
+                </h5>
+              </a>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                Beauty is a responsive landing page for natural beauty cosmetic
+                products.
+              </p>
+
               <div className="w-full flex items-center justify-start">
                 <div className="m-2">
                   <img src={html_img} alt="html" className="h-10 w-10" />
@@ -452,41 +496,6 @@ function App() {
               </div>
             </div>
           </div>
-
-          <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
-            <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={xbox_img}
-                alt="beauty"
-              />
-            </a>
-            <div class="p-5">
-              <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  Beauty responsive site
-                </h5>
-              </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Beauty is a responsive landing page for natural beauty cosmetic products.
-              </p>
-              
-              <div className="w-full flex items-center justify-start">
-                <div className="m-2">
-                  <img src={html_img} alt="html" className="h-10 w-10" />
-                </div>
-
-                <div className="m-2">
-                  <img src={css_img} alt="css" className="h-10 w-10" />
-                </div>
-
-                <div className="m-2">
-                  <img src={js_img} alt="js" className="h-10 w-10" />
-                </div>
-              </div>
-            </div>
-          </div>
-
 
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
@@ -503,11 +512,12 @@ function App() {
                 </h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              React Components is a project that focuses on componentizing the most commonly used elements on a web page.
+                React Components is a project that focuses on componentizing the
+                most commonly used elements on a web page.
               </p>
-              
+
               <div className="w-full flex items-center justify-start">
-              <div className="m-2">
+                <div className="m-2">
                   <img src={reactLogo} alt="html" className="h-10 w-10" />
                 </div>
 
@@ -522,16 +532,9 @@ function App() {
             </div>
           </div>
 
-
-          
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={travel_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={travel_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -567,15 +570,9 @@ function App() {
             </div>
           </div>
 
-
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={tinder_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={tinder_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -611,14 +608,9 @@ function App() {
             </div>
           </div>
 
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={king_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={king_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -654,15 +646,9 @@ function App() {
             </div>
           </div>
 
-
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={auth_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={auth_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -698,14 +684,9 @@ function App() {
             </div>
           </div>
 
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={you_movie_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={you_movie_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -741,15 +722,9 @@ function App() {
             </div>
           </div>
 
-
-
           <div className="max-w-sm backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg  rounded-lg">
             <a href="#">
-              <img
-                className="rounded-t-lg"
-                src={calendar_img}
-                alt="beauty"
-              />
+              <img className="rounded-t-lg" src={calendar_img} alt="beauty" />
             </a>
             <div class="p-5">
               <a href="#">
@@ -784,7 +759,6 @@ function App() {
               </a>
             </div>
           </div>
-
 
           <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
