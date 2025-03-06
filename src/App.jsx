@@ -8,6 +8,7 @@ import {
   FaFileCode,
   FaEnvelope,
   FaGithub,
+  FaDownload 
 } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
 import graph from "./assets/images/graph.png";
@@ -133,10 +134,16 @@ function App() {
             </li>
           </ul>
           <div className="flex justify-center items-center">
-            
-          <SelectLang/>
-            <button class="bg-transparent border border-[#681798] shadow-md shadow-[#981792] px-8 py-2 rounded-lg cursor-pointer hover:bg-[#981792]">
-              Donwload CV
+            <div className="mx-2">
+            <SelectLang/>
+            </div>
+          
+            <button class="bg-transparent border border-[#681798] shadow-md shadow-[#981792] px-8 py-2 rounded-lg cursor-pointer hover:bg-[#981792] max-[483px]:hidden">
+              Resume
+            </button>
+
+            <button class="bg-transparent border border-[#681798] shadow-md shadow-[#981792] px-4 py-2 rounded-lg cursor-pointer hover:bg-[#981792] min-[484px]:hidden">
+            <FaDownload />
             </button>
           </div>
         </div>
