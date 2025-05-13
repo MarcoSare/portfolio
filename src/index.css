@@ -4,67 +4,197 @@
 
 
 @font-face {
-    font-family: 'Lexend';
-    src: url('./assets/fonts/lexend/Lexend-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'Lexend';
+  src: url('./assets/fonts/lexend/Lexend-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-  @font-face {
-    font-family: "M PLUS Code Latin";
-    font-optical-sizing: auto;
-    src: url('./assets/fonts/MPLUSCodeLatin/MPLUSCodeLatin-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-  }
+@font-face {
+  font-family: "M PLUS Code Latin";
+  font-optical-sizing: auto;
+  src: url('./assets/fonts/MPLUSCodeLatin/MPLUSCodeLatin-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 
 :root {
-    --header-height: 55px;
-    --first-color: #030712;
-    /*--second-color: #ff9050;*/
-    /*--first-color-alt: #e44c00;*/
-    /*--second-color-alt: #ffab08;*/
-    /*--body-color: #f4fbfb;*/
-    --text-color: #ffffff;
-    --sub-text-color: #d1d8e0;
+  --header-height: 55px;
+  --first-color: #7B0D4B;       /* Color principal */
+  --second-color: #D7266E;      /* Color secundario vibrante */
+  --first-color-alt: #5A0837;   /* Versión más oscura del principal */
+  --second-color-alt: #F77CA0;  /* Versión más clara y suave del secundario */
+  --body-color: #ffffff;        /* Fondo blanco */
+  --text-color: #111111;        /* Texto principal oscuro */
+  --sub-text-color: #5f5f5f;    /* Texto secundario gris oscuro */
+}
+
+
+body.dark-theme {
+   --first-color: #7B0D4B;       /* Color principal, se mantiene */
+  --second-color: #F77CA0;      /* Secundario suave y luminoso */
+  --first-color-alt: #D7266E;   /* Alternativo vibrante para hover o acento */
+  --second-color-alt: #FFB5D0;  /* Alternativa clara para detalles */
+  --body-color: #0A0A0A;        /* Fondo oscuro principal */
+  --text-color: #F1F2F6;        /* Texto claro para buena legibilidad */
+  --sub-text-color: #A0A0A0;  
+}
+
+
+
+.biggest-font-size {
+  font-size: 2rem;
+}
+
+.h1-font-size {
+  font-size: 1.5rem;
+}
+
+.h2-font-size {
+  font-size: 1.25rem;
+}
+
+.h3-font-size {
+  font-size: 1rem;
+}
+
+.normal-font-size {
+  font-size: 0.938rem;
+}
+
+.small-font-size {
+  font-size: 0.813rem;
+}
+
+.smaller-font-size {
+  font-size: 0.75rem;
+}
+
+
+body {
+  font-family: 'Lexend', sans-serif;
+  /*font-family: var(--body-font);*/
+  /*font-size: var(--normal-font-size);*/
+  background-color: var(--body-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+
+
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+
+.container-w-full {
+  width: 100vw;
+}
+
+
+.container-row{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  
+}
+
+
+.div-nav{
+ background-color: #f3f3f3da;
+ 
+}
+
+
+.box-shadow{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+
+.item-li:hover{
+  background: #e0e0e0da;
+  color: var(--second-color);
+ 
+
+
+}
+
+ 
+
+
+
+
+/* Estilos base (para móviles por defecto) */
+
+/* Tablet (≥ 600px) */
+@media (min-width: 600px) {
+  .container {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* Tablet horizontal / Laptop pequeño (≥ 768px) */
+@media (min-width: 768px) {
+  
+}
+
+/* Laptop / Desktop (≥ 992px) */
+@media (min-width: 992px) {
+  .container {
+    padding-inline: 3rem;
   }
 
-
-  body {
-    font-family: 'Lexend', sans-serif;
-    /*font-family: var(--body-font);*/
-    /*font-size: var(--normal-font-size);*/
-    background-color: var(--first-color);
-    color: white;
-    overflow-x: hidden;
-    width: 100vw;
-    max-width: 100vw;
+  .container {
+    padding-inline: 2rem;
   }
 
-  .logo {
-    font-family: "M PLUS Code Latin", monospace;
+  .biggest-font-size {
+    font-size: 3.5rem;
+  }
+
+  .h1-font-size {
+    font-size: 2.25rem;
+  }
+
+  .h2-font-size {
+    font-size: 1.5rem;
+  }
+
+  .h3-font-size {
     font-size: 1.25rem;
-    color: white;
   }
 
-  .btn{
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    transition: background-position 1s;
+  .normal-font-size {
+    font-size: 1rem;
   }
 
-  .btn:hover{
-    background-position: 0 0;
+  .small-font-size {
+    font-size: 0.875rem;
   }
 
-  .img-skill {
-    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.1)) 
-            drop-shadow(0 0 18px rgba(162, 0, 255, 0.3));
+  .smaller-font-size {
+    font-size: 0.813rem;
+  }
 }
 
-.nube {
-  border-radius: 50%/50%;
+/* Desktop grande (≥ 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    padding-inline: 4rem;
+  }
 }
 
+/* Pantallas extra grandes (≥ 1400px) */
+@media (min-width: 1400px) {
 
+  .container {
+    padding-inline: 0.5rem;
+  }
+
+}
