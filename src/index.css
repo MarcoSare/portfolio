@@ -102,7 +102,17 @@ body {
 .container-row{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  
+}
+
+.grid-info-header{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+.grid-services{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 
@@ -155,7 +165,7 @@ body {
   }
 
   .biggest-font-size {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .h1-font-size {
