@@ -2,6 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 import {
   FaHouse,
   FaUserTie,
@@ -10,6 +18,15 @@ import {
   FaGithub,
   FaLinkedin,
   FaFacebook,
+  FaCode,
+  FaCodeBranch,
+  FaAndroid,
+  FaDatabase,
+  FaCloud,
+  FaToolbox,
+  FaCircleUser,
+  FaLeftLong,
+  FaRightLong,
   FaDownload,
 } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
@@ -39,14 +56,93 @@ import king_img from "./assets/images/king_style.png";
 import auth_img from "./assets/images/auth_flutter.png";
 import you_movie_img from "./assets/images/you_movie.png";
 import calendar_img from "./assets/images/calendar.png";
+import quotation_img from "./assets/images/quotation.png";
+import semsa_logo from "./assets/images/semsa_logo.png";
+
 import SelectLang from "./components/SelectLang";
 
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "./App.css";
 import TimeLine from "./components/TimeLine";
 
+
+
+const history = [
+  {
+    title: "Semsa",
+    subTitle: "August 2023 – current",
+    imagen: semsa_logo,
+    page: 'https://semsamx.com/',
+    activities: [
+      {
+        name: "Custom ERP Development.",
+        text: [
+          "Designed and developed modules from scratch for both the frontend and backend.",
+          "Implemented the user interface using React and Tailwind CSS, creating custom and responsive.",
+          "Built and optimized complex queries in MySQL to improve database performance and efficiency.",
+          "Ensured API security by implementing JWT authentication, activity logs, and database backup policies.",
+          "Configured and managed cloud hosting using AWS, ensuring high availability and scalability.",
+        ],
+      },
+
+      {
+        name: "eCommerce Project Initiation.",
+        text: [
+          "Implemented user interfaces with React and Tailwind CSS, focusing on design and usability",
+          "Designed the initial backend architecture using Node.js with Express and MongoDB, ensuring a solid foundation for system scalability and security.",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "Clever cloud CDMX ",
+    subTitle: "August 2023 – December 2023",
+    activities: [
+      {
+        name: "Desktop Software Developer Intern",
+        text: [
+          "Provided technical support and ongoing maintenance for a desktop point-of-sale application.",
+          "Developed new modules and features based on specific client requirements.",
+          "Implemented solutions using Java Swing for the graphical user interface and MySQL for data management.",
+          "Used Git Bucket for version control, efficiently managing code changes.",
+          "Optimized queries and database structures to improve system performance.",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "Instituto Tecnológico de Celaya",
+    subTitle: "August 2022 – August 2023",
+    activities: [
+      {
+        name: "Educational Software Developer",
+        text: [
+          "Developed an attendance and student management system focused on teachers.",
+          "Implemented backend logic using PHP and MySQL for data management.",
+          "Designed and optimized SQL queries to improve system performance and efficiency.",
+          "Developed the mobile application using Flutter to ensure accessibility and ease of use.",
+          "Implemented user authentication and access control in the system.",
+          "Designed and implemented a REST API for communication between the frontend and backend.",
+        ],
+      },
+    ],
+  },
+];
 function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSlideChange = (swiper) => {
+    console.log("holaaaa", swiper.realIndex);
+    setActiveIndex(swiper.realIndex);
+  };
+
   return (
     <>
+      {/* 
       <header className="container h-[60px] ">
         <div className="div-nav h-full w-full rounded-full  px-8 py-2 flex justify-between items-center">
           <div className="w-12 h-12">
@@ -73,6 +169,7 @@ function App() {
           <div></div>
         </div>
       </header>
+      */}
 
       <section className="w-screen mb-32">
         {/* orange */}
@@ -176,29 +273,503 @@ function App() {
             </div>
           </div>
         </div>
-
-        
-        
       </section>
 
-      <section className="w-screen">
+      <section className="w-screen mb-32">
         <div className="container">
-        <h1 className="h1-font-size text-[var(--first-color)] mb-8">My services</h1>
+          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
+            My services
+          </h1>
 
-        <div className="grid-services gap-8">
-          <div className=" bg-red-800 rounded-xl  h-80">
+          <div className="grid-services gap-8 mb-8">
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices.
+              </p>
+            </div>
+
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Backend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I build robust, secure, and scalable backend systems to power
+                your applications. From database design to API development, I
+                ensure smooth data flow, high performance, and reliable
+                server-side functionality tailored to your business needs.
+              </p>
+            </div>
+
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Mobile App Development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I design and develop high-quality mobile applications for
+                Android and iOS. With a focus on performance, usability, and
+                cross-platform compatibility, I deliver apps that offer a
+                seamless experience and meet your business objectives.
+              </p>
+            </div>
+
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Database Administration</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I manage, optimize, and secure databases to ensure reliable
+                performance and data integrity. From design and implementation
+                to maintenance and backups, I provide comprehensive database
+                solutions tailored to your application's needs.
+              </p>
+            </div>
+
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>DevOps Services</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I streamline development and deployment processes through
+                automation, continuous integration, and scalable infrastructure.
+                By bridging the gap between development and operations, I ensure
+                faster delivery, improved reliability, and efficient system
+                performance.
+              </p>
+            </div>
+
+            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Software Maintenance and Support</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I provide ongoing maintenance and technical support to keep your
+                software running smoothly. From fixing bugs and applying updates
+                to improving performance and adding new features, I ensure your
+                systems remain reliable and up to date.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h2 className="h2-font-size">Testimonials</h2>
+            <p>Customers who have been satisfied</p>
+            <div className="flex justify-center container relative">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-4">
+                <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
+                  <FaLeftLong className="h2-font-size text-white" />
+                </button>
+                <button className="custom-next p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
+                  <FaRightLong className="h2-font-size text-white" />
+                </button>
+              </div>
+              <Swiper
+                spaceBetween={10}
+                slidesPerView="auto"
+                centeredSlides={true}
+                loop={true}
+                navigation={{
+                  nextEl: ".custom-next",
+                  prevEl: ".custom-prev",
+                }}
+                autoplay={{
+                  delay: 10000, // 15 segundos
+                  disableOnInteraction: false, // sigue después de interacción
+                }}
+                modules={[Pagination, Navigation, Autoplay]}
+                onSlideChange={handleSlideChange}
+                className="w-full"
+              >
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 0 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Jorge Alberto Plascencia</b>
+                        </p>
+                        <a
+                          href="https://www.ideamia.com.mx/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Director General IDEAMIA – Tech
+                        </a>
+                        <p className="smaller-font-size text-[var(--first-color)]">
+                          jorge@ideamia.com.mx
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        El Ing. Marco Isaías Ramírez García, con quien tuve el
+                        privilegio de colaborar estrechamente en diversos
+                        proyectos de desarrollo de software dentro de nuestra
+                        empresa, demostró ser un profesional altamente
+                        competente, comprometido y proactivo. Participó
+                        activamente en el diseño, desarrollo y puesta en marcha
+                        de sistemas complejos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 1 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Ing. José Rodrigo Torres C.</b>
+                        </p>
+                        <a
+                          href="https://semsamx.com/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Director General SEMSA
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 2 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Jorge Eduardo Aguacaliente Silis</b>
+                        </p>
+                        <a
+                          href="https://www.ideamia.com.mx/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Desarrollador y Producto Owner
+                        </a>
+                        <p className="smaller-font-size text-[var(--first-color)]">
+                          jorge@ideamia.com.mx
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        El Ing. Marco Isaías Ramírez García, con quien tuve el
+                        privilegio de colaborar estrechamente en diversos
+                        proyectos de desarrollo de software dentro de nuestra
+                        empresa, demostró ser un profesional altamente
+                        competente, comprometido y proactivo. Participó
+                        activamente en el diseño, desarrollo y puesta en marcha
+                        de sistemas complejos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 3 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Jorge Alberto Plascencia</b>
+                        </p>
+                        <a
+                          href="https://www.ideamia.com.mx/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Director General IDEAMIA – Tech
+                        </a>
+                        <p className="smaller-font-size text-[var(--first-color)]">
+                          jorge@ideamia.com.mx
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        El Ing. Marco Isaías Ramírez García, con quien tuve el
+                        privilegio de colaborar estrechamente en diversos
+                        proyectos de desarrollo de software dentro de nuestra
+                        empresa, demostró ser un profesional altamente
+                        competente, comprometido y proactivo. Participó
+                        activamente en el diseño, desarrollo y puesta en marcha
+                        de sistemas complejos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 4 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Ing. José Rodrigo Torres C.</b>
+                        </p>
+                        <a
+                          href="https://semsamx.com/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Director General SEMSA
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide
+                  className={`!w-[800px] ${
+                    activeIndex === 5 ? "" : " opacity-80"
+                  } }`}
+                >
+                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+                    <div className="flex gap-8 mb-4">
+                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
+                        <FaCircleUser className="w-3/4 h-3/4" />
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="h3-font-size">
+                          <b>Jorge Eduardo Aguacaliente Silis</b>
+                        </p>
+                        <a
+                          href="https://www.ideamia.com.mx/"
+                          className="normal-font-size text-[var(--first-color)] underline"
+                        >
+                          Desarrollador y Producto Owner
+                        </a>
+                        <p className="smaller-font-size text-[var(--first-color)]">
+                          jorge@ideamia.com.mx
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex  gap-8 pl-28">
+                      <p className="small-font-size text-[var(--sub-text-color)]">
+                        El Ing. Marco Isaías Ramírez García, con quien tuve el
+                        privilegio de colaborar estrechamente en diversos
+                        proyectos de desarrollo de software dentro de nuestra
+                        empresa, demostró ser un profesional altamente
+                        competente, comprometido y proactivo. Participó
+                        activamente en el diseño, desarrollo y puesta en marcha
+                        de sistemas complejos.
+                      </p>
+                    </div>
+                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                    <div className="w-24 h-24 absolute bottom-0 right-28">
+                      <img
+                        src={quotation_img}
+                        alt="quotation"
+                        className="opacity-10"
+                      />
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-screen mb-32 bg-gray-100">
+        <div className="container">
+          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
+            About me
+          </h1>
+
+          <div className="container-row">
+            <div className=" h-[500px] flex flex-col justify-center items-center">
+              <div className="h-[400px] w-[400px] bg-white rounded-full overflow-hidden">
+                <img
+                  src={user}
+                  alt="user"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
+            <div className=" h-[500px] flex flex-col justify-center items-start px-12">
+              <h2 className="h2-font-size text-[var(--first-color)] mb-8">
+                <b>Who is Marco?</b>{" "}
+              </h2>
+              <p className="normal-font-size mb-4">
+                I am a Systems Engineer graduated from the National
+                Technological Institute of Mexico in Celaya and a Programming
+                Technician from CETIS No. 115. I have over 10 years of
+                experience in software and database development, and over three
+                years of professional experience. <br />
+                I specialize in web and mobile development with JavaScript,
+                React, PHP, and Java. I have worked in software companies,
+                private companies, educational institutions, and freelance
+                projects, strengthening my skills in different teams and
+                environments. <br />I also have teaching experience, sharing
+                knowledge and training new generations of developers.
+              </p>
+
+              <button
+                type="button"
+                class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2"
+              >
+                Download CV
+              </button>
+            </div>
+
             
           </div>
 
-          <div className=" bg-red-800 rounded-xl  h-80"></div>
-
-          <div className=" bg-red-800 rounded-xl  h-80"></div>
-
-        </div>
-
-
-          
-
+          <div>
+             {history.map((item, index) => {
+          return (
+            <TimeLine
+              isRight={index % 2 === 0}
+              isLeft={!(index % 2 === 0)}
+              title={item.title}
+              subTitle={item.subTitle}
+              list={item.activities}
+              image={item.imagen}
+              page={item.page}
+            />
+          );
+        })}
+          </div>
         </div>
       </section>
     </>

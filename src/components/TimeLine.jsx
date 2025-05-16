@@ -1,13 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
-function TimeLine({ image, isRight = false, isLeft = false, title, subTitle, list = [] }) {
+function TimeLine({
+  image,
+  isRight = false,
+  isLeft = false,
+  title,
+  subTitle,
+  list = [],
+  page,
+}) {
   const divRef = useRef(null);
   const divRef2 = useRef(null);
   const tiltRef = useRef([]); // Almacenará referencias a múltiples elementos con VanillaTilt
   const [height, setHeight] = useState(200);
-
   const [height2, setHeight2] = useState(200);
+
+
+  const handleRedirect  = ({link}) => {
+      window.open(link, '_blank');
+  }
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
@@ -15,10 +27,6 @@ function TimeLine({ image, isRight = false, isLeft = false, title, subTitle, lis
     });
 
     if (divRef.current) observer.observe(divRef.current);
-
-
-
-
 
     const observer2 = new ResizeObserver(([entry]) => {
       setHeight2(entry.contentRect.height);
@@ -45,21 +53,37 @@ function TimeLine({ image, isRight = false, isLeft = false, title, subTitle, lis
     <div className="w-full max-w-[1440px]">
       {/* Se muestra en pantallas grandes */}
       <div className="hidden md:flex items-center justify-center w-full">
-        <div className="w-2/5 flex flex-col items-end justify-center relative" style={{ height: `${height * 1.1}px` }}>
+        <div
+          className="w-2/5 flex flex-col items-end justify-center relative"
+          style={{ height: `${height }px` }}
+        >
           {isLeft && (
             <div ref={divRef} className="w-3/4 absolute top-0">
               <div
                 ref={(el) => (tiltRef.current[0] = el)}
-                className="p-4 rounded-lg shadow-lg shadow-[#6F0B45] backdrop-blur-lg bg-white/10 border border-white/20"
+                className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
               >
-                <h3 className="text-lg font-bold">{title}</h3>
-                <h4 className="mb-3 font-serif">{subTitle}</h4>
+                <h3 className="h3-font-size text-[var(--first-color)]">
+                  {" "}
+                  <b>{title}</b>
+                </h3>
+                <h4 className="normal-font-size">{subTitle}</h4>
                 {list.map((item) => (
                   <div key={item.name}>
-                    <p className="text-xs text-gray-300 my-3 font-bold">{item.name}</p>
-                    {item.text.map((text, index) => (
-                      <p key={index} className="text-xs text-gray-300 leading-none">• {text}</p>
-                    ))}
+                    <p className="normal-font-size mt-4">
+                      {item.name}:
+                    </p>
+
+                    <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                      {item.text.map((text, index) => (
+                        <li
+                          key={index}
+                          className="small-font-size text-[var(--sub-text-color)]"
+                        >
+                          {text}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
@@ -68,29 +92,52 @@ function TimeLine({ image, isRight = false, isLeft = false, title, subTitle, lis
         </div>
 
         {/* Línea de tiempo */}
-        <div className="w-1/5 flex flex-col items-center justify-center" style={{ height: `${height * 1.5}px` }}>
-          <div className="bg-white h-[10%] w-[5px]"></div>
-          <div className="bg-white h-[70px] w-[70px] rounded-full flex items-center justify-center overflow-hidden">
-            <img src={image} alt="timeline" className="h-full w-full object-contain" />
+        <div
+          className="w-1/5 flex flex-col items-center justify-center"
+          style={{ height: `${height }px` }}
+        >
+          <div className="bg-[var(--first-color)] h-[10%] w-[5px]"></div>
+          <div className="bg-white h-[70px] w-[70px] rounded-full flex items-center justify-center overflow-hidden cursor-pointer" onClick={() => {handleRedirect({link: page}) }}>
+            <img
+              src={image}
+              alt="timeline"
+              className="h-full w-full object-contain"
+            />
           </div>
-          <div className="bg-white h-[calc(100%-70px-10%)] w-[5px]"></div>
+          <div className="bg-[var(--first-color)] h-[calc(100%-70px-10%)] w-[5px]"></div>
         </div>
 
-        <div className="w-2/5 flex flex-col items-start justify-center relative" style={{ height: `${height * 1.1}px` }}>
+        <div
+          className="w-2/5 flex flex-col items-start justify-center relative"
+          style={{ height: `${height }px` }}
+        >
           {isRight && (
             <div ref={divRef} className="w-3/4 absolute top-0">
               <div
-                ref={(el) => (tiltRef.current[1] = el)}
-                className="p-4 rounded-lg shadow-lg shadow-[#681798] backdrop-blur-lg bg-white/10 border border-white/20"
+                ref={(el) => (tiltRef.current[0] = el)}
+                className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
               >
-                <h3 className="text-lg font-bold">{title}</h3>
-                <h4 className="mb-3 font-serif">{subTitle}</h4>
+                <h3 className="h3-font-size text-[var(--first-color)]">
+                  {" "}
+                  <b>{title}</b>
+                </h3>
+                <h4 className="normal-font-size">{subTitle}</h4>
                 {list.map((item) => (
                   <div key={item.name}>
-                    <p className="text-xs text-gray-300 my-3 font-bold">{item.name}</p>
-                    {item.text.map((text, index) => (
-                      <p key={index} className="text-xs text-gray-300 leading-none">• {text}</p>
-                    ))}
+                    <p className="normal-font-size mt-4">
+                      {item.name}:
+                    </p>
+
+                    <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                      {item.text.map((text, index) => (
+                        <li
+                          key={index}
+                          className="small-font-size text-[var(--sub-text-color)]"
+                        >
+                          {text}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
@@ -110,19 +157,30 @@ function TimeLine({ image, isRight = false, isLeft = false, title, subTitle, lis
             <h4 className="mb-3 font-serif">{subTitle}</h4>
             {list.map((item) => (
               <div key={item.name}>
-                <p className="text-xs text-gray-300 my-3 font-bold">{item.name}</p>
+                <p className="text-xs text-gray-300 my-3 font-bold">
+                  {item.name}
+                </p>
                 {item.text.map((text, index) => (
-                  <p key={index} className="text-xs text-gray-300 leading-none">• {text}</p>
+                  <p key={index} className="text-xs text-gray-300 leading-none">
+                    • {text}
+                  </p>
                 ))}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="w-1/5 flex flex-col items-center justify-center h-full"  style={{ height: `${height2 * 1.2}px` }}>
+        <div
+          className="w-1/5 flex flex-col items-center justify-center h-full"
+          style={{ height: `${height2 * 1.2}px` }}
+        >
           <div className="bg-white h-[10%] w-[5px]"></div>
           <div className="bg-white h-[50px] w-[50px] rounded-full flex items-center justify-center overflow-hidden">
-            <img src={image} alt="timeline" className="h-full w-full object-contain" />
+            <img
+              src={image}
+              alt="timeline"
+              className="h-full w-full object-contain"
+            />
           </div>
           <div className="bg-white h-[calc(100%-50px-10%)] w-[5px]"></div>
         </div>
