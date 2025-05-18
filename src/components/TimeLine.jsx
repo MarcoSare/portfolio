@@ -16,10 +16,9 @@ function TimeLine({
   const [height, setHeight] = useState(200);
   const [height2, setHeight2] = useState(200);
 
-
-  const handleRedirect  = ({link}) => {
-      window.open(link, '_blank');
-  }
+  const handleRedirect = ({ link }) => {
+    window.open(link, "_blank");
+  };
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
@@ -52,10 +51,10 @@ function TimeLine({
   return (
     <div className="w-full max-w-[1440px]">
       {/* Se muestra en pantallas grandes */}
-      <div className="hidden md:flex items-center justify-center w-full">
+      <div className="hidden lg:flex items-center justify-center w-full">
         <div
           className="w-2/5 flex flex-col items-end justify-center relative"
-          style={{ height: `${height }px` }}
+          style={{ height: `${height}px` }}
         >
           {isLeft && (
             <div ref={divRef} className="w-3/4 absolute top-0">
@@ -70,9 +69,7 @@ function TimeLine({
                 <h4 className="normal-font-size">{subTitle}</h4>
                 {list.map((item) => (
                   <div key={item.name}>
-                    <p className="normal-font-size mt-4">
-                      {item.name}:
-                    </p>
+                    <p className="normal-font-size mt-4">{item.name}:</p>
 
                     <ul class="list-disc pl-5 space-y-2 text-gray-800">
                       {item.text.map((text, index) => (
@@ -94,10 +91,15 @@ function TimeLine({
         {/* Línea de tiempo */}
         <div
           className="w-1/5 flex flex-col items-center justify-center"
-          style={{ height: `${height }px` }}
+          style={{ height: `${height}px` }}
         >
           <div className="bg-[var(--first-color)] h-[10%] w-[5px]"></div>
-          <div className="bg-white h-[70px] w-[70px] rounded-full flex items-center justify-center overflow-hidden cursor-pointer" onClick={() => {handleRedirect({link: page}) }}>
+          <div
+            className="bg-white h-[70px] w-[70px] rounded-full flex items-center justify-center overflow-hidden cursor-pointer"
+            onClick={() => {
+              handleRedirect({ link: page });
+            }}
+          >
             <img
               src={image}
               alt="timeline"
@@ -109,7 +111,7 @@ function TimeLine({
 
         <div
           className="w-2/5 flex flex-col items-start justify-center relative"
-          style={{ height: `${height }px` }}
+          style={{ height: `${height}px` }}
         >
           {isRight && (
             <div ref={divRef} className="w-3/4 absolute top-0">
@@ -124,9 +126,7 @@ function TimeLine({
                 <h4 className="normal-font-size">{subTitle}</h4>
                 {list.map((item) => (
                   <div key={item.name}>
-                    <p className="normal-font-size mt-4">
-                      {item.name}:
-                    </p>
+                    <p className="normal-font-size mt-4">{item.name}:</p>
 
                     <ul class="list-disc pl-5 space-y-2 text-gray-800">
                       {item.text.map((text, index) => (
@@ -147,26 +147,30 @@ function TimeLine({
       </div>
 
       {/* Se muestra en pantallas menores a 800px */}
-      <div className="flex md:hidden items-center justify-center w-full ">
+      <div className="flex lg:hidden items-center justify-center w-full">
         <div className="w-4/5" ref={divRef2}>
           <div
             ref={(el) => (tiltRef.current[2] = el)}
-            className="p-4 rounded-lg shadow-lg shadow-[#681798] backdrop-blur-lg bg-white/10 border border-white/20"
+            className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
           >
-            <h3 className="text-lg font-bold">{title}</h3>
-            <h4 className="mb-3 font-serif">{subTitle}</h4>
+            <h3 className="h3-font-size text-[var(--first-color)]">{title}</h3>
+            <h4 className="normal-font-size">{subTitle}</h4>
             {list.map((item) => (
-              <div key={item.name}>
-                <p className="text-xs text-gray-300 my-3 font-bold">
-                  {item.name}
-                </p>
-                {item.text.map((text, index) => (
-                  <p key={index} className="text-xs text-gray-300 leading-none">
-                    • {text}
-                  </p>
+                  <div key={item.name}>
+                    <p className="normal-font-size mt-4">{item.name}:</p>
+
+                    <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                      {item.text.map((text, index) => (
+                        <li
+                          key={index}
+                          className="small-font-size text-[var(--sub-text-color)]"
+                        >
+                          {text}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </div>
-            ))}
           </div>
         </div>
 

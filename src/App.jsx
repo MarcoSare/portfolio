@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import Marquee from "react-fast-marquee";
 
 import {
   VerticalTimeline,
@@ -28,6 +29,8 @@ import {
   FaLeftLong,
   FaRightLong,
   FaDownload,
+  FaLaptop,
+  FaUser,
 } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
 import user from "./assets/images/user.png";
@@ -37,24 +40,37 @@ import graph3 from "./assets/images/graph_3.svg";
 import graph4 from "./assets/images/graph_4.svg";
 import node_img from "./assets/images/nodejs.svg";
 import js_img from "./assets/images/js.svg";
+import ts_img from "./assets/images/ts.png";
+import react_img from "./assets/images/react.png";
 import html_img from "./assets/images/html.svg";
 import css_img from "./assets/images/css.svg";
 import tailwind_img from "./assets/images/tailwind.svg";
+import postgresql_img from "./assets/images/postgresql.svg";
+
 import flutter_img from "./assets/images/flutter.svg";
+import dart_img from "./assets/images/dart.png";
 import php_img from "./assets/images/php.svg";
+import laravel_img from "./assets/images/laravel.png";
 import java_img from "./assets/images/java.svg";
 import mysql_img from "./assets/images/mysql.svg";
 import aws_img from "./assets/images/aws.svg";
 import mongo_img from "./assets/images/mongodb.svg";
 import firebase_img from "./assets/images/firebase.svg";
+
+import nextjs_img from "./assets/images/nextjs.svg";
+import swift_img from "./assets/images/swift.png";
 import beauty_img from "./assets/images/beauty.png";
 import react_components from "./assets/images/react_components.png";
 import xbox_img from "./assets/images/xbox.png";
 import travel_img from "./assets/images/travel.png";
 import tinder_img from "./assets/images/tinder_itc.png";
+import tinder_img_2 from "./assets/images/tinder_itc_2.png";
+import tinder_img_3 from "./assets/images/tinder_itc_3.png";
 import king_img from "./assets/images/king_style.png";
 import auth_img from "./assets/images/auth_flutter.png";
 import you_movie_img from "./assets/images/you_movie.png";
+import you_movie_img_2 from "./assets/images/you_movie_2.png";
+import you_movie_img_3 from "./assets/images/you_movie_3.png";
 import calendar_img from "./assets/images/calendar.png";
 import quotation_img from "./assets/images/quotation.png";
 import semsa_logo from "./assets/images/semsa_logo.png";
@@ -66,15 +82,98 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./App.css";
 import TimeLine from "./components/TimeLine";
+import TestimonialSlide from "./components/TestimonialSlide";
 
+const testimonials = [
+  {
+    name: "Jorge Alberto Plascencia",
+    page: "https://www.ideamia.com.mx/",
+    role: "Director General IDEAMIA – Tech",
+    mail: "jorge@ideamia.com.mx",
+    text: ` El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio
+            de colaborar estrechamente en diversos proyectos de desarrollo de
+            software dentro de nuestra empresa, demostró ser un profesional
+            altamente competente, comprometido y proactivo. Participó
+            activamente en el diseño, desarrollo y puesta en marcha de sistemas
+            complejos.`,
+  },
 
+  {
+    name: "Ing. José Rodrigo Torres C.",
+    page: "https://semsamx.com/",
+    role: " Director General SEMSA",
+    mail: "",
+    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.`,
+  },
+
+  {
+    name: "Ing. Jorge Eduardo Aguacaliente Silis",
+    page: "https://semsamx.com/",
+    role: " Director General SEMSA",
+    mail: "",
+    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.`,
+  },
+
+  {
+    name: "Jorge Alberto Plascencia",
+    page: "https://www.ideamia.com.mx/",
+    role: "Director General IDEAMIA – Tech",
+    mail: "jorge@ideamia.com.mx",
+    text: ` El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio
+            de colaborar estrechamente en diversos proyectos de desarrollo de
+            software dentro de nuestra empresa, demostró ser un profesional
+            altamente competente, comprometido y proactivo. Participó
+            activamente en el diseño, desarrollo y puesta en marcha de sistemas
+            complejos.`,
+  },
+
+  {
+    name: "Ing. José Rodrigo Torres C.",
+    page: "https://semsamx.com/",
+    role: " Director General SEMSA",
+    mail: "",
+    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.`,
+  },
+
+  {
+    name: "Ing. Jorge Eduardo Aguacaliente Silis",
+    page: "https://semsamx.com/",
+    role: " Director General SEMSA",
+    mail: "",
+    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
+                        altamente competente, comprometido y proactivo. Posee
+                        sólidos conocimientos en desarrollo de aplicaciones web,
+                        lo que le permitió participar eficazmente en la
+                        implementación, diseño, desarrollo y mantenimiento del
+                        ERP de la empresa, cumpliendo siempre con los plazos y
+                        estándares de calidad requeridos.`,
+  },
+];
 
 const history = [
   {
     title: "Semsa",
     subTitle: "August 2023 – current",
     imagen: semsa_logo,
-    page: 'https://semsamx.com/',
+    page: "https://semsamx.com/",
     activities: [
       {
         name: "Custom ERP Development.",
@@ -132,32 +231,75 @@ const history = [
     ],
   },
 ];
+
+const skills = {
+  Frontend: [
+    html_img,
+    css_img,
+    js_img,
+    ts_img,
+    react_img,
+    tailwind_img,
+  ],
+  Backend: [node_img, php_img, laravel_img, java_img],
+  DataBase: [mysql_img, mongo_img, postgresql_img],
+  "Mobile App Development": [flutter_img, dart_img, java_img],
+  DevOps: [aws_img, firebase_img],
+  Learning: [swift_img, nextjs_img],
+};
+
+const skillsImg = [
+  html_img,
+  css_img,
+  js_img,
+  ts_img,
+  react_img,
+  tailwind_img,
+  node_img,
+  php_img,
+  laravel_img,
+  java_img,
+  mysql_img,
+  mongo_img,
+  postgresql_img,
+  flutter_img,
+  aws_img,
+  firebase_img,
+];
+
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 900);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const handleSlideChange = (swiper) => {
-    console.log("holaaaa", swiper.realIndex);
+    //console.log("holaaaa", swiper.realIndex);
     setActiveIndex(swiper.realIndex);
   };
 
   return (
     <>
-      {/* 
-      <header className="container h-[60px] ">
-        <div className="div-nav h-full w-full rounded-full  px-8 py-2 flex justify-between items-center">
+      <header className="w-full h-[60px] div-nav fixed top-0 z-50">
+        <div className="container  h-full w-full   px-8 py-2 flex justify-between items-center">
           <div className="w-12 h-12">
             <img src={logo} alt="logo" className="w-full h-full" />
           </div>
 
-          <ul className="flex gap-1">
+          <ul className="flex gap-1 max-[768px]:hidden">
             <li>
               <button className="px-6 py-2 rounded-xl item-li">Home</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">Services</button>
+              <button className="px-6 py-2 rounded-xl item-li">About me</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">About me</button>
+              <button className="px-6 py-2 rounded-xl item-li">Services</button>
             </li>
             <li>
               <button className="px-6 py-2 rounded-xl item-li">Projects</button>
@@ -166,108 +308,146 @@ function App() {
               <button className="px-6 py-2 rounded-xl item-li">Contact</button>
             </li>
           </ul>
-          <div></div>
+          <div>
+            <SelectLang />
+          </div>
         </div>
       </header>
-      */}
 
-      <section className="w-screen mb-32">
-        {/* orange */}
-        <div className="container container-row">
-          {/* red */}
-          <div className="w-full  bg-white">
-            <div className="flex w-fit px-4 py-2 border border-black">
-              <h1>¡HOLA!</h1>
-            </div>
-
-            <div className="mt-[1.5rem] border border-black px-4 py-2">
-              <h1 className="h1-font-size">
-                I'm{" "}
-                <span className="text-[var(--first-color)]">Marco García,</span>
-              </h1>
-              <h1 className="biggest-font-size mb-8">
-                Web and movil developer
-              </h1>
-              <p className="normal-font-size text-[var(--sub-text-color)] mb-4">
-                Hi, I'm a passionate Web and Mobile Developer with experience
-                building dynamic, user-friendly websites and mobile
-                applications. I specialize in using modern technologies like
-                React, Flutter, and Nodejs to create seamless user experiences
-                across platforms.
-              </p>
-              <div className="h-[2px] bg-[var(--sub-text-color)] mb-4"></div>
-              <div className="grid-info-header mb-4">
-                <div className="w-full flex flex-col justify-center items-center">
-                  <p className="h1-font-size">
-                    <b>3</b>{" "}
-                    <span className="text-[var(--second-color)]">+</span>
-                  </p>
-                  <p className="normal-font-size">
-                    Year of <br />
-                    experiences
-                  </p>
-                </div>
-
-                <div className="w-full flex flex-col justify-center items-center">
-                  <p className="h1-font-size">
-                    <b>6</b>{" "}
-                    <span className="text-[var(--second-color)]">+</span>
-                  </p>
-                  <p className="normal-font-size">
-                    Year in <br />
-                    the field
-                  </p>
-                </div>
-
-                <div className="w-full flex flex-col justify-center items-center">
-                  <p className="h1-font-size">
-                    <b>10</b>{" "}
-                    <span className="text-[var(--second-color)]">+</span>
-                  </p>
-                  <p className="normal-font-size">
-                    {" "}
-                    Successful
-                    <br />
-                    Projects
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-row-reverse gap-4">
-                <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
-                  <FaGithub className="w-3/4 h-3/4 text-[var(--first-color)]" />
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                  <div className="absolute bottom-4 left-4 text-white z-10"></div>
-                </div>
-
-                <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
-                  <FaLinkedin className="w-3/4 h-3/4 text-[var(--first-color)]" />
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                  <div className="absolute bottom-4 left-4 text-white z-10"></div>
-                </div>
-
-                <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
-                  <FaFacebook className="w-3/4 h-3/4 text-[var(--first-color)]" />
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                  <div className="absolute bottom-4 left-4 text-white z-10"></div>
-                </div>
-              </div>
-            </div>
+      <section className="w-full h-[60px] div-nav fixed bottom-0 z-50 max-w-[650px] left-1/2 -translate-x-1/2 mb-2 rounded-xl px-4 max-[650px]:w-[calc(100%-2rem)] hidden max-[768px]:block">
+        <div className="container flex justify-between items-center h-full">
+          <div className="h-full w-16  flex items-center justify-center">
+            <FaHouse className="h-full w-1/2" />
           </div>
-          <div className="w-full relative overflow-hidden">
-            {" "}
-            {/* green*/}
-            <img
-              src={graph1}
-              alt="graph1"
-              className="absolute -bottom-24 w-full -z-[1]"
-            />
-            <div className="w-full h-full flex flex-col justify-end items-center">
-              <div className="h-full w-full">
+
+          <div className="h-full w-16  flex items-center justify-center">
+            <FaUserTie className="h-full w-1/2" />
+          </div>
+
+          <div className="h-full w-16  flex items-center justify-center">
+            <FaLaptop className="h-full w-1/2" />
+          </div>
+
+          <div className="h-full w-16  flex items-center justify-center">
+            <FaCode className="h-full w-1/2" />
+          </div>
+
+          <div className="h-full w-16  flex items-center justify-center">
+            <FaEnvelope className="h-full w-1/2" />
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full mb-32 mt-[60px] pt-32 max-[768px]:pt-16">
+        {/* orange 
+        <div class="blur-bg"></div>
+        <div class="blur-bg-2"></div>
+        
+        */}
+
+        {/* checar*/}
+        <div className="container">
+          {/* red */}
+          <div className="container-row">
+            <div className="w-full  flex flex-col items-start justify-center h-full relative">
+              <div class="blur-bg"></div>
+              <div className="relative border border-white px-4 py-2 w-fit typewriter-wrapper">
+                <div className="h-3 w-3 bg-white absolute -top-[6px] -left-[6px]" />
+                <div className="h-3 w-3 bg-white absolute -top-[6px] -right-[6px]" />
+                <div className="h-3 w-3 bg-white absolute -bottom-[6px] -right-[6px]" />
+                <div className="h-3 w-3 bg-white absolute -bottom-[6px] -left-[6px]" />
+                <h1 className="typewriter h1-font-size">¡HOLA!</h1>
+              </div>
+
+              <div className="mt-[1.5rem]  px-4 py-2">
+                <h1 className="h1-font-size">
+                  I'm{" "}
+                  <span className="text-[var(--first-color)]">
+                    Marco García,
+                  </span>
+                </h1>
+                <h1 className="biggest-font-size mb-8">
+                  Web and movil developer
+                </h1>
+                <p className="normal-font-size text-[var(--sub-text-color)] mb-4">
+                  Hi, I'm a passionate Web and Mobile Developer with experience
+                  building dynamic, user-friendly websites and mobile
+                  applications. I specialize in using modern technologies like
+                  React, Flutter, and Nodejs to create seamless user experiences
+                  across platforms.
+                </p>
+                <div className="h-[2px] bg-[var(--sub-text-color)] mb-4"></div>
+                <div className="grid-info-header mb-4">
+                  <div className="w-full flex flex-col justify-center items-center">
+                    <p className="h1-font-size">
+                      <b>3</b>{" "}
+                      <span className="text-[var(--second-color)]">+</span>
+                    </p>
+                    <p className="normal-font-size">
+                      Year of <br />
+                      experiences
+                    </p>
+                  </div>
+
+                  <div className="w-full flex flex-col justify-center items-center">
+                    <p className="h1-font-size">
+                      <b>6</b>{" "}
+                      <span className="text-[var(--second-color)]">+</span>
+                    </p>
+                    <p className="normal-font-size">
+                      Year in <br />
+                      the field
+                    </p>
+                  </div>
+
+                  <div className="w-full flex flex-col justify-center items-center">
+                    <p className="h1-font-size">
+                      <b>10</b>{" "}
+                      <span className="text-[var(--second-color)]">+</span>
+                    </p>
+                    <p className="normal-font-size">
+                      {" "}
+                      Successful
+                      <br />
+                      Projects
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse gap-4">
+                  <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
+                    <FaGithub className="w-3/4 h-3/4 text-[var(--first-color)]" />
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                    <div className="absolute bottom-4 left-4 text-white z-10"></div>
+                  </div>
+
+                  <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
+                    <FaLinkedin className="w-3/4 h-3/4 text-[var(--first-color)]" />
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                    <div className="absolute bottom-4 left-4 text-white z-10"></div>
+                  </div>
+
+                  <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow">
+                    <FaFacebook className="w-3/4 h-3/4 text-[var(--first-color)]" />
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                    <div className="absolute bottom-4 left-4 text-white z-10"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full relative overflow-hidden">
+              {" "}
+              {/* green*/}
+              <img
+                src={graph1}
+                alt="graph1"
+                className="absolute -bottom-24 w-full -z-[1] background-shape"
+              />
+              <div className="w-full h-full flex flex-col justify-center items-center z-10">
                 <img
                   src={user}
                   alt="user"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-fill img-user "
                 />
               </div>
             </div>
@@ -275,14 +455,86 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32">
-        <div className="container">
-          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
-            My services
+      <section className="w-full mb-32 pb-8 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16">
+        <div className="container ">
+          <h1 className="h1-font-size text-[var(--first-color)] text-center">
+            <b>About me</b>
           </h1>
 
-          <div className="grid-services gap-8 mb-8">
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+          <div className="flex justify-center items-center mb-8">
+            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
+          </div>
+
+          <div className="container-row mb-8">
+            <div className="flex flex-col justify-center items-center">
+              <div className="h-[400px] w-[400px] bg-white rounded-circular overflow-hidden max-[600px]:!h-4/5 max-[600px]:!w-4/5">
+                <img
+                  src={user}
+                  alt="user"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center items-start px-12 relative">
+              <div class="blur-bg-2"></div>
+              <h2 className="h2-font-size text-[var(--first-color)] mb-8 z-10">
+                <b>Who is Marco?</b>{" "}
+              </h2>
+              <p className="normal-font-size mb-4 z-10">
+                I am a Systems Engineer graduated from the National
+                Technological Institute of Mexico in Celaya and a Programming
+                Technician from CETIS No. 115. I have over 10 years of
+                experience in software and database development, and over three
+                years of professional experience. <br />
+                I specialize in web and mobile development with JavaScript,
+                React, PHP, and Java. I have worked in software companies,
+                private companies, educational institutions, and freelance
+                projects, strengthening my skills in different teams and
+                environments. <br />I also have teaching experience, sharing
+                knowledge and training new generations of developers.
+              </p>
+
+              <button
+                type="button"
+                class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+              >
+                Download CV
+              </button>
+            </div>
+          </div>
+
+          <div>
+            {history.map((item, index) => {
+              return (
+                <TimeLine
+                  isRight={index % 2 === 0}
+                  isLeft={!(index % 2 === 0)}
+                  title={item.title}
+                  subTitle={item.subTitle}
+                  list={item.activities}
+                  image={item.imagen}
+                  page={item.page}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-screen mb-32 ">
+        <div className="container relative">
+          <div class="blur-bg !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2 !h-[1000px] !w-[1000px]"></div>
+          <h1 className="h1-font-size text-[var(--first-color)] text-center">
+            <b>Services</b>
+          </h1>
+
+          <div className="flex justify-center items-center mb-8">
+            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
+          </div>
+
+          <div className="grid-services gap-8 mb-16">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Frontend development</b>
@@ -295,7 +547,7 @@ function App() {
               </p>
             </div>
 
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Backend development</b>
@@ -308,7 +560,7 @@ function App() {
               </p>
             </div>
 
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Mobile App Development</b>
@@ -321,7 +573,7 @@ function App() {
               </p>
             </div>
 
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Database Administration</b>
@@ -334,7 +586,7 @@ function App() {
               </p>
             </div>
 
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>DevOps Services</b>
@@ -348,7 +600,7 @@ function App() {
               </p>
             </div>
 
-            <div className=" bg-gray-100 rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
               <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Software Maintenance and Support</b>
@@ -364,7 +616,7 @@ function App() {
 
           <div className="w-full">
             <h2 className="h2-font-size">Testimonials</h2>
-            <p>Customers who have been satisfied</p>
+
             <div className="flex justify-center container relative">
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-4">
                 <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
@@ -383,395 +635,370 @@ function App() {
                   nextEl: ".custom-next",
                   prevEl: ".custom-prev",
                 }}
+                 
                 autoplay={{
                   delay: 10000, // 15 segundos
                   disableOnInteraction: false, // sigue después de interacción
                 }}
+               
                 modules={[Pagination, Navigation, Autoplay]}
                 onSlideChange={handleSlideChange}
                 className="w-full"
               >
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 0 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Jorge Alberto Plascencia</b>
-                        </p>
-                        <a
-                          href="https://www.ideamia.com.mx/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Director General IDEAMIA – Tech
-                        </a>
-                        <p className="smaller-font-size text-[var(--first-color)]">
-                          jorge@ideamia.com.mx
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        El Ing. Marco Isaías Ramírez García, con quien tuve el
-                        privilegio de colaborar estrechamente en diversos
-                        proyectos de desarrollo de software dentro de nuestra
-                        empresa, demostró ser un profesional altamente
-                        competente, comprometido y proactivo. Participó
-                        activamente en el diseño, desarrollo y puesta en marcha
-                        de sistemas complejos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
+                {testimonials.map((testimonial, index) => {
+                  return (
+                    <SwiperSlide
+                      style={{
+                        width: isMobile ? "100%" : "800px",
+                      }}
+                    >
+                      <TestimonialSlide
+                        testimonial={testimonial}
+                        activeIndex={index}
+                        isMobile={isMobile}
                       />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 1 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Ing. José Rodrigo Torres C.</b>
-                        </p>
-                        <a
-                          href="https://semsamx.com/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Director General SEMSA
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 2 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Jorge Eduardo Aguacaliente Silis</b>
-                        </p>
-                        <a
-                          href="https://www.ideamia.com.mx/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Desarrollador y Producto Owner
-                        </a>
-                        <p className="smaller-font-size text-[var(--first-color)]">
-                          jorge@ideamia.com.mx
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        El Ing. Marco Isaías Ramírez García, con quien tuve el
-                        privilegio de colaborar estrechamente en diversos
-                        proyectos de desarrollo de software dentro de nuestra
-                        empresa, demostró ser un profesional altamente
-                        competente, comprometido y proactivo. Participó
-                        activamente en el diseño, desarrollo y puesta en marcha
-                        de sistemas complejos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 3 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Jorge Alberto Plascencia</b>
-                        </p>
-                        <a
-                          href="https://www.ideamia.com.mx/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Director General IDEAMIA – Tech
-                        </a>
-                        <p className="smaller-font-size text-[var(--first-color)]">
-                          jorge@ideamia.com.mx
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        El Ing. Marco Isaías Ramírez García, con quien tuve el
-                        privilegio de colaborar estrechamente en diversos
-                        proyectos de desarrollo de software dentro de nuestra
-                        empresa, demostró ser un profesional altamente
-                        competente, comprometido y proactivo. Participó
-                        activamente en el diseño, desarrollo y puesta en marcha
-                        de sistemas complejos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 4 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Ing. José Rodrigo Torres C.</b>
-                        </p>
-                        <a
-                          href="https://semsamx.com/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Director General SEMSA
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  className={`!w-[800px] ${
-                    activeIndex === 5 ? "" : " opacity-80"
-                  } }`}
-                >
-                  <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
-                    <div className="flex gap-8 mb-4">
-                      <div className="w-20 h-20  rounded-full flex items-center justify-center">
-                        <FaCircleUser className="w-3/4 h-3/4" />
-                      </div>
-                      <div className="flex flex-col">
-                        <p className="h3-font-size">
-                          <b>Jorge Eduardo Aguacaliente Silis</b>
-                        </p>
-                        <a
-                          href="https://www.ideamia.com.mx/"
-                          className="normal-font-size text-[var(--first-color)] underline"
-                        >
-                          Desarrollador y Producto Owner
-                        </a>
-                        <p className="smaller-font-size text-[var(--first-color)]">
-                          jorge@ideamia.com.mx
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex  gap-8 pl-28">
-                      <p className="small-font-size text-[var(--sub-text-color)]">
-                        El Ing. Marco Isaías Ramírez García, con quien tuve el
-                        privilegio de colaborar estrechamente en diversos
-                        proyectos de desarrollo de software dentro de nuestra
-                        empresa, demostró ser un profesional altamente
-                        competente, comprometido y proactivo. Participó
-                        activamente en el diseño, desarrollo y puesta en marcha
-                        de sistemas complejos.
-                      </p>
-                    </div>
-                    <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                    <div className="w-24 h-24 absolute bottom-0 right-28">
-                      <img
-                        src={quotation_img}
-                        alt="quotation"
-                        className="opacity-10"
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
+                    </SwiperSlide>
+                  );
+                })}
               </Swiper>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="w-screen mb-32 bg-gray-100">
-        <div className="container">
-          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
-            About me
+      <section className="w-screen mb-32">
+        <div className="container relative">
+          <div class="blur-bg"></div>
+           <div class="blur-bg-3"></div>
+          
+          <h1 className="h1-font-size text-[var(--first-color)] text-center">
+            <b>My projects</b>
           </h1>
 
-          <div className="container-row">
-            <div className=" h-[500px] flex flex-col justify-center items-center">
-              <div className="h-[400px] w-[400px] bg-white rounded-full overflow-hidden">
-                <img
-                  src={user}
-                  alt="user"
-                  className="object-cover w-full h-full"
-                />
+          <div className="flex justify-center items-center mb-8">
+            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
+          </div>
+          <h2 className="h2-font-size">Skills</h2>
+          <p>Customers who have been satisfied</p>
+
+          <div className="max-w-5xl mx-auto px-4 py-12">
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Habilidades Técnicas
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {Object.entries(skills).map(([category, items]) => (
+                <div key={category} className="bg-cristal shadow rounded-2xl p-6">
+                  <h3 className="h3-font-size text-[var(--first-color)] mb-4">
+                    <b>{category}</b>
+                  </h3>
+                  <ul className="flex flex-wrap gap-2">
+                    {items.map((skill) => (
+                     <img alt="skill" src={skill} className="w-12 h-12 object-cover">
+                    </img>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          
+
+          <div className="grid-projects">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
+              <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
+                <FaGithub className="w-3/4 h-3/4 text-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute bottom-4 left-4 text-white z-10"></div>
+              </div>
+
+              <div className="h-[400px] absolute left-[75%] transform -translate-x-1/2 w-1/3">
+                <img src={tinder_img_2} alt="tinder_img" className="h-full" />
+              </div>
+              <div className="h-[400px] absolute left-[25%] transform -translate-x-1/2 w-1/3">
+                <img src={tinder_img_3} alt="tinder_img" className="h-full" />
+              </div>
+              <div className="h-[400px] absolute left-1/2 transform -translate-x-1/2 w-1/3">
+                <img src={tinder_img} alt="tinder_img" className="h-full" />
+              </div>
+
+              <div className="h-[400px] mb-8"></div>
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices.
+              </p>
+
+              <div className="flex  flex-wrap gap-4">
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Flutter
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Dart
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  FireBase
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Node.js
+                </div>
               </div>
             </div>
 
-            <div className=" h-[500px] flex flex-col justify-center items-start px-12">
-              <h2 className="h2-font-size text-[var(--first-color)] mb-8">
-                <b>Who is Marco?</b>{" "}
+            <div className="bg-cristal  rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
+              <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
+                <FaGithub className="w-3/4 h-3/4 text-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute bottom-4 left-4 text-white z-10"></div>
+              </div>
+
+              <div className="h-[400px] absolute left-[75%] transform -translate-x-1/2 w-1/3">
+                <img
+                  src={you_movie_img_2}
+                  alt="tinder_img"
+                  className="h-full"
+                />
+              </div>
+              <div className="h-[400px] absolute left-[25%] transform -translate-x-1/2 w-1/3">
+                <img
+                  src={you_movie_img_3}
+                  alt="tinder_img"
+                  className="h-full"
+                />
+              </div>
+              <div className="h-[400px] absolute left-1/2 transform -translate-x-1/2 w-1/3">
+                <img src={you_movie_img} alt="tinder_img" className="h-full" />
+              </div>
+
+              <div className="h-[400px] mb-8"></div>
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
               </h2>
-              <p className="normal-font-size mb-4">
-                I am a Systems Engineer graduated from the National
-                Technological Institute of Mexico in Celaya and a Programming
-                Technician from CETIS No. 115. I have over 10 years of
-                experience in software and database development, and over three
-                years of professional experience. <br />
-                I specialize in web and mobile development with JavaScript,
-                React, PHP, and Java. I have worked in software companies,
-                private companies, educational institutions, and freelance
-                projects, strengthening my skills in different teams and
-                environments. <br />I also have teaching experience, sharing
-                knowledge and training new generations of developers.
+              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices. I create modern,
+                responsive, and high-performance websites tailored to your
+                needs. From simple landing pages to dynamic web applications, I
+                ensure clean code, great user experience, and seamless
+                functionality across all devices.
               </p>
 
-              <button
-                type="button"
-                class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2"
-              >
-                Download CV
-              </button>
+              <div className="flex  flex-wrap gap-4">
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Flutter
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Dart
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  FireBase
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Node.js
+                </div>
+              </div>
             </div>
 
-            
-          </div>
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
+              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
+                <FaGithub className="w-3/4 h-3/4 text-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute bottom-4 left-4 text-white z-10"></div>
+              </div>
 
-          <div>
-             {history.map((item, index) => {
-          return (
-            <TimeLine
-              isRight={index % 2 === 0}
-              isLeft={!(index % 2 === 0)}
-              title={item.title}
-              subTitle={item.subTitle}
-              list={item.activities}
-              image={item.imagen}
-              page={item.page}
-            />
-          );
-        })}
+              <div className="h-[400px] mb-8">
+                <img src={king_img} alt="tinder_img" className="h-full" />
+              </div>
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices. I create modern,
+                responsive, and high-performance websites tailored to your
+                needs. From simple landing pages to dynamic web applications, I
+                ensure clean code, great user experience, and seamless
+                functionality across all devices.
+              </p>
+
+              <div className="flex  flex-wrap gap-4">
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Flutter
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Dart
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  FireBase
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Node.js
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      <section className="w-screen mb-32">
+        <div className="container relative">
+           <div class="blur-bg"></div>
+            <div class="blur-bg-3"></div>
+          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
+            Contact
+          </h1>
+
+          <div className="max-w-[1400px] mx-auto px-4 py-12">
+            <form className="bg-cristal shadow-md rounded-2xl p-6 space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className=""
+                >
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Tu nombre"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className=""
+                >
+                  Correo electrónico
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="tucorreo@ejemplo.com"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className=""
+                >
+                  Mensaje
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Escribe tu mensaje aquí..."
+                />
+              </div>
+
+              <div className="text-center">
+                <button
+                type="button"
+                class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+              >
+                Download CV
+              </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[--second-body-color] text-gray-300 px-6 py-10 mt-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {/* Branding */}
+          <div>
+            <h3 className="text-xl font-bold text-white">TuNombre.dev</h3>
+            <p className="mt-2 text-sm text-gray-400">
+              Desarrollador web y móvil creando experiencias modernas.
+            </p>
+          </div>
+
+          {/* Navegación */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-2">Enlaces</h4>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a href="#inicio" className="hover:underline">
+                  Inicio
+                </a>
+              </li>
+              <li>
+                <a href="#proyectos" className="hover:underline">
+                  Proyectos
+                </a>
+              </li>
+              <li>
+                <a href="#contacto" className="hover:underline">
+                  Contacto
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Redes sociales */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-2">Sígueme</h4>
+            <div className="flex gap-4 mt-2">
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className="w-5 h-5 fill-current hover:text-white"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 0C5.37...z" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className="w-5 h-5 fill-current hover:text-white"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 0h-14c-2.76...z" />
+                </svg>
+              </a>
+              <a href="mailto:correo@ejemplo.com">
+                <svg
+                  className="w-5 h-5 fill-current hover:text-white"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 4h16v16H4z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center text-sm text-gray-500">
+          &copy; {new Date().getFullYear()} TuNombre.dev — Todos los derechos
+          reservados.
+        </div>
+      </footer>
     </>
   );
 }
@@ -793,4 +1020,85 @@ export default App;
           <div className="w-[550px] h-[550px] blur-xl">
             <img src={graph} alt="graph2" className="w-full h-full"/>
           </div>
+
+
+
+          <Marquee gradient={false} speed={60}>
+            {skillsImg.map((skill) => (
+              <div key={skill} className="mx-4  h-[65px] w-[65px]">
+                <img
+                  src={skill}
+                  alt={skill}
+                  className="w-full h-full object-cover mx-4"
+                />
+              </div>
+            ))}
+          </Marquee>  
+*/
+
+// components/ProjectCard.tsx
+function ProjectCard({ title, description, tech, image, link, repo }) {
+  return (
+    <div className="bg-white shadow-md rounded-2xl overflow-hidden transition-transform hover:scale-105">
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
+
+      <div className="p-5">
+        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+        <p className="text-gray-600 text-sm mb-4">{description}</p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {tech.map((t) => (
+            <span
+              key={t}
+              className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex gap-4">
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline text-sm font-medium"
+            >
+              🔗 Ver proyecto
+            </a>
+          )}
+          {repo && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 hover:underline text-sm font-medium"
+            >
+              💻 Código fuente
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* 
+
+    <div className="min-h-screen flex items-center justify-center bg-[#0f0f1a] relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-radial from-purple-800 via-purple-900 to-[#0f0f1a] opacity-70"></div>
+  
+  <div className="relative z-10 text-center text-white">
+    <h1 className="text-4xl font-bold">Carlos S. Aldazosa</h1>
+    <p className="text-xl mt-2 text-orange-400 font-semibold">
+      Software Engineer & Bug Exterminator
+    </p>
+    <p className="mt-4 text-sm text-gray-300">
+      Always learning about new paradigms and technologies<br />
+      to apply the right solution in the right place.
+    </p>
+  </div>
+</div>
+
 */
