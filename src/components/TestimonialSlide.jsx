@@ -24,7 +24,7 @@ const TestimonialSlide = ({ activeIndex, testimonial, isMobile }) => {
   */
   return (
     
-      <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-cristal my-6">
+      <div className="px-8 py-12 rounded-xl min-h-[300px] w-full flex-col items-start justify-start relative bg-[--second-body-color] my-6">
         {/* Header */}
         <div className="flex gap-8 mb-4">
           <div className="w-20 h-20 rounded-full flex items-center justify-center">

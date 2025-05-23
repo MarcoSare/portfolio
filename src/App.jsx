@@ -233,14 +233,7 @@ const history = [
 ];
 
 const skills = {
-  Frontend: [
-    html_img,
-    css_img,
-    js_img,
-    ts_img,
-    react_img,
-    tailwind_img,
-  ],
+  Frontend: [html_img, css_img, js_img, ts_img, react_img, tailwind_img],
   Backend: [node_img, php_img, laravel_img, java_img],
   DataBase: [mysql_img, mongo_img, postgresql_img],
   "Mobile App Development": [flutter_img, dart_img, java_img],
@@ -338,7 +331,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full mb-32 mt-[60px] pt-32 max-[768px]:pt-16">
+      <section className="w-full mb-32 mt-[60px] pt-16 ">
         {/* orange 
         <div class="blur-bg"></div>
         <div class="blur-bg-2"></div>
@@ -522,155 +515,11 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32 ">
-        <div className="container relative">
-          <div class="blur-bg !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2 !h-[1000px] !w-[1000px]"></div>
-          <h1 className="h1-font-size text-[var(--first-color)] text-center">
-            <b>Services</b>
-          </h1>
-
-          <div className="flex justify-center items-center mb-8">
-            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
-          </div>
-
-          <div className="grid-services gap-8 mb-16">
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Backend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I build robust, secure, and scalable backend systems to power
-                your applications. From database design to API development, I
-                ensure smooth data flow, high performance, and reliable
-                server-side functionality tailored to your business needs.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Mobile App Development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I design and develop high-quality mobile applications for
-                Android and iOS. With a focus on performance, usability, and
-                cross-platform compatibility, I deliver apps that offer a
-                seamless experience and meet your business objectives.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Database Administration</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I manage, optimize, and secure databases to ensure reliable
-                performance and data integrity. From design and implementation
-                to maintenance and backups, I provide comprehensive database
-                solutions tailored to your application's needs.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>DevOps Services</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I streamline development and deployment processes through
-                automation, continuous integration, and scalable infrastructure.
-                By bridging the gap between development and operations, I ensure
-                faster delivery, improved reliability, and efficient system
-                performance.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Software Maintenance and Support</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I provide ongoing maintenance and technical support to keep your
-                software running smoothly. From fixing bugs and applying updates
-                to improving performance and adding new features, I ensure your
-                systems remain reliable and up to date.
-              </p>
-            </div>
-          </div>
-
-          <div className="w-full">
-            <h2 className="h2-font-size">Testimonials</h2>
-
-            <div className="flex justify-center container relative">
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-4">
-                <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
-                  <FaLeftLong className="h2-font-size text-white" />
-                </button>
-                <button className="custom-next p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
-                  <FaRightLong className="h2-font-size text-white" />
-                </button>
-              </div>
-              <Swiper
-                spaceBetween={10}
-                slidesPerView="auto"
-                centeredSlides={true}
-                loop={true}
-                navigation={{
-                  nextEl: ".custom-next",
-                  prevEl: ".custom-prev",
-                }}
-                 
-                autoplay={{
-                  delay: 10000, // 15 segundos
-                  disableOnInteraction: false, // sigue después de interacción
-                }}
-               
-                modules={[Pagination, Navigation, Autoplay]}
-                onSlideChange={handleSlideChange}
-                className="w-full"
-              >
-                {testimonials.map((testimonial, index) => {
-                  return (
-                    <SwiperSlide
-                      style={{
-                        width: isMobile ? "100%" : "800px",
-                      }}
-                    >
-                      <TestimonialSlide
-                        testimonial={testimonial}
-                        activeIndex={index}
-                        isMobile={isMobile}
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="w-screen mb-32">
         <div className="container relative">
           <div class="blur-bg"></div>
-           <div class="blur-bg-3"></div>
-          
+          <div class="blur-bg-3"></div>
+
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>My projects</b>
           </h1>
@@ -687,22 +536,26 @@ function App() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {Object.entries(skills).map(([category, items]) => (
-                <div key={category} className="bg-cristal shadow rounded-2xl p-6">
+                <div
+                  key={category}
+                  className="bg-cristal shadow rounded-2xl p-6"
+                >
                   <h3 className="h3-font-size text-[var(--first-color)] mb-4">
                     <b>{category}</b>
                   </h3>
                   <ul className="flex flex-wrap gap-2">
                     {items.map((skill) => (
-                     <img alt="skill" src={skill} className="w-12 h-12 object-cover">
-                    </img>
+                      <img
+                        alt="skill"
+                        src={skill}
+                        className="w-12 h-12 object-cover"
+                      ></img>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
           </div>
-
-          
 
           <div className="grid-projects">
             <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
@@ -844,14 +697,198 @@ function App() {
                 </div>
               </div>
             </div>
+
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
+              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
+                <FaGithub className="w-3/4 h-3/4 text-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute bottom-4 left-4 text-white z-10"></div>
+              </div>
+
+              <div className="h-[400px] mb-8">
+              </div>
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices. I create modern,
+                responsive, and high-performance websites tailored to your
+                needs. From simple landing pages to dynamic web applications, I
+                ensure clean code, great user experience, and seamless
+                functionality across all devices.
+              </p>
+
+              <div className="flex  flex-wrap gap-4">
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Flutter
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Dart
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  FireBase
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Node.js
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      <section className="w-screen mb-32 ">
+        <div className="container relative">
+          <div class="blur-bg !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2 !h-[1000px] !w-[1000px]"></div>
+          <h1 className="h1-font-size text-[var(--first-color)] text-center">
+            <b>Services</b>
+          </h1>
+
+          <div className="flex justify-center items-center mb-8">
+            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
+          </div>
+
+          <div className="grid-services gap-8 mb-16">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices.
+              </p>
+            </div>
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Backend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I build robust, secure, and scalable backend systems to power
+                your applications. From database design to API development, I
+                ensure smooth data flow, high performance, and reliable
+                server-side functionality tailored to your business needs.
+              </p>
+            </div>
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Mobile App Development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I design and develop high-quality mobile applications for
+                Android and iOS. With a focus on performance, usability, and
+                cross-platform compatibility, I deliver apps that offer a
+                seamless experience and meet your business objectives.
+              </p>
+            </div>
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Database Administration</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I manage, optimize, and secure databases to ensure reliable
+                performance and data integrity. From design and implementation
+                to maintenance and backups, I provide comprehensive database
+                solutions tailored to your application's needs.
+              </p>
+            </div>
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>DevOps Services</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I streamline development and deployment processes through
+                automation, continuous integration, and scalable infrastructure.
+                By bridging the gap between development and operations, I ensure
+                faster delivery, improved reliability, and efficient system
+                performance.
+              </p>
+            </div>
+
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+              <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
+              <h2 className="h3-font-size mb-4">
+                <b>Software Maintenance and Support</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                I provide ongoing maintenance and technical support to keep your
+                software running smoothly. From fixing bugs and applying updates
+                to improving performance and adding new features, I ensure your
+                systems remain reliable and up to date.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full">
+            <h2 className="h2-font-size">Testimonials</h2>
+
+            <div className="flex justify-center container relative">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-4">
+                <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
+                  <FaLeftLong className="h2-font-size text-white" />
+                </button>
+                <button className="custom-next p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
+                  <FaRightLong className="h2-font-size text-white" />
+                </button>
+              </div>
+              <Swiper
+                spaceBetween={10}
+                slidesPerView="auto"
+                centeredSlides={true}
+                loop={true}
+                navigation={{
+                  nextEl: ".custom-next",
+                  prevEl: ".custom-prev",
+                }}
+                autoplay={{
+                  delay: 10000, // 15 segundos
+                  disableOnInteraction: false, // sigue después de interacción
+                }}
+                modules={[Pagination, Navigation, Autoplay]}
+                onSlideChange={handleSlideChange}
+                className="w-full"
+              >
+                {testimonials.map((testimonial, index) => {
+                  return (
+                    <SwiperSlide
+                      style={{
+                        width: isMobile ? "100%" : "800px",
+                      }}
+                    >
+                      <TestimonialSlide
+                        testimonial={testimonial}
+                        activeIndex={index}
+                        isMobile={isMobile}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
       <section className="w-screen mb-32">
         <div className="container relative">
-           <div class="blur-bg"></div>
-            <div class="blur-bg-3"></div>
+          <div class="blur-bg"></div>
+          <div class="blur-bg-3"></div>
           <h1 className="h1-font-size text-[var(--first-color)] mb-8">
             Contact
           </h1>
@@ -859,10 +896,7 @@ function App() {
           <div className="max-w-[1400px] mx-auto px-4 py-12">
             <form className="bg-cristal shadow-md rounded-2xl p-6 space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className=""
-                >
+                <label htmlFor="name" className="">
                   Nombre
                 </label>
                 <input
@@ -876,10 +910,7 @@ function App() {
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className=""
-                >
+                <label htmlFor="email" className="">
                   Correo electrónico
                 </label>
                 <input
@@ -893,10 +924,7 @@ function App() {
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className=""
-                >
+                <label htmlFor="message" className="">
                   Mensaje
                 </label>
                 <textarea
@@ -911,11 +939,11 @@ function App() {
 
               <div className="text-center">
                 <button
-                type="button"
-                class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
-              >
-                Download CV
-              </button>
+                  type="button"
+                  class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+                >
+                  Download CV
+                </button>
               </div>
             </form>
           </div>
