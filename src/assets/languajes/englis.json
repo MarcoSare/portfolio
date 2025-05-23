@@ -1,0 +1,81 @@
+{
+  "header": {
+    "about": "About me",
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "sayHi": "Hello!",
+    "p1": "I'm",
+    "p2": "Web and mobile developer",
+    "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
+    "yearExp": ["Year of", "experiences"],
+    "yearField": ["Year in", "the field"],
+    "projects": ["Successful", "projects"]
+  },
+
+  "about": {
+    "title": "About me",
+    "subtitle": "Who is Marco?",
+    "desc": [
+      "I am a Computer Systems Engineer, graduated from the Tecnológico Nacional de México in Celaya, with a solid background in both web and mobile application development. I specialize in Full Stack development and cross-platform mobile app creation, combining technical expertise, logical thinking, and a passion for building clean, functional, and user-friendly digital experiences.",
+      "With over three years of professional experience and more than six years immersed in the world of software development, I have contributed to projects across a variety of industries — from enterprise platforms to educational apps and consumer-facing digital products. I’ve worked in both multidisciplinary teams and as an independent developer, which has equipped me with an adaptable mindset, strong problem-solving skills, and a focus on delivering high-impact results."
+    ],
+   "history": [
+  {
+    "title": "Semsa",
+    "subTitle": "August 2023 – April 2025",
+    "imagen": "semsa_logo",
+    "page": "https://semsamx.com/",
+    "activities": [
+      {
+        "name": "Full Stack Developer",
+        "text": [
+          "Designed and developed modules from scratch for both the frontend and backend.",
+          "Implemented user interfaces using React and Tailwind CSS, creating custom and fully responsive components.",
+          "Built and optimized complex MySQL queries to improve database performance and efficiency.",
+          "Ensured API security by implementing JWT authentication, activity logging, and database backup policies.",
+          "Configured and managed cloud hosting with AWS, ensuring high availability and scalability."
+        ]
+      }
+    ]
+  },
+
+  {
+    "title": "Clever Cloud CDMX",
+    "subTitle": "August 2023 – December 2023",
+    "activities": [
+      {
+        "name": "Web Developer Intern",
+        "text": [
+          "Designed, developed, and optimized web applications, improving operational efficiency and user experience.",
+          "Implemented custom solutions that reduced load times and increased conversion rates.",
+          "Led API and database integrations, achieving greater scalability and reliability in high-demand environments."
+        ]
+      }
+    ]
+  },
+
+  {
+    "title": "Instituto Tecnológico de Celaya",
+    "subTitle": "August 2022 – August 2023",
+    "activities": [
+      {
+        "name": "Software Developer",
+        "text": [
+          "Developed an attendance and student management system tailored for teachers.",
+          "Implemented backend logic using PHP and MySQL for robust data handling.",
+          "Designed and optimized SQL queries to enhance system performance.",
+          "Built a mobile application using Flutter to ensure accessibility and ease of use.",
+          "Implemented secure user authentication and access control.",
+          "Designed and developed a REST API for seamless communication between frontend and backend."
+        ]
+      }
+    ]
+  }
+]
+
+  }
+}

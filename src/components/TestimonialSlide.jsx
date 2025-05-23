@@ -59,10 +59,10 @@ const TestimonialSlide = ({ activeIndex, testimonial, isMobile }) => {
 
         {/* Quotation Marks */}
         <div className="w-24 h-24 absolute top-0 left-28 rotate-180">
-          <img src={quotation_img} alt="quotation" className="opacity-10" />
+          <img src={quotation_img} alt="quotation" className="opacity-10 filter grayscale" />
         </div>
         <div className="w-24 h-24 absolute bottom-0 right-28">
-          <img src={quotation_img} alt="quotation" className="opacity-10" />
+          <img src={quotation_img} alt="quotation" className="opacity-10 filter grayscale" />
         </div>
       </div>
     

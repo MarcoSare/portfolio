@@ -84,6 +84,10 @@ import "./App.css";
 import TimeLine from "./components/TimeLine";
 import TestimonialSlide from "./components/TestimonialSlide";
 
+
+import english from './assets/languajes/englis.json';
+import spanish from './assets/languajes/spanish.json';
+
 const testimonials = [
   {
     name: "Jorge Alberto Plascencia",
@@ -261,8 +265,8 @@ const skillsImg = [
 ];
 
 function App() {
+  const [languaje, setLanguaje] = useState(english)
   const [activeIndex, setActiveIndex] = useState(0);
-
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
   useEffect(() => {
@@ -286,23 +290,29 @@ function App() {
 
           <ul className="flex gap-1 max-[768px]:hidden">
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">Home</button>
+              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.home}</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">About me</button>
+              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.about}</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">Services</button>
+              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.projects}</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">Projects</button>
+              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.services}</button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">Contact</button>
+              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.contact}</button>
             </li>
           </ul>
           <div>
-            <SelectLang />
+            <SelectLang
+            onChange={(lan) => {
+              //console.log('está en inglés: ', lan)
+              const lang = lan ? english : spanish 
+              setLanguaje(lang)
+            }}
+            />
           </div>
         </div>
       </header>
@@ -342,32 +352,28 @@ function App() {
         <div className="container">
           {/* red */}
           <div className="container-row">
-            <div className="w-full  flex flex-col items-start justify-center h-full relative">
-              <div class="blur-bg"></div>
+            <div className="w-full  flex flex-col items-start justify-center h-full relative !z-[1]">
+              <div className="blur-bg pointer-events-none"></div>
               <div className="relative border border-white px-4 py-2 w-fit typewriter-wrapper">
                 <div className="h-3 w-3 bg-white absolute -top-[6px] -left-[6px]" />
                 <div className="h-3 w-3 bg-white absolute -top-[6px] -right-[6px]" />
                 <div className="h-3 w-3 bg-white absolute -bottom-[6px] -right-[6px]" />
                 <div className="h-3 w-3 bg-white absolute -bottom-[6px] -left-[6px]" />
-                <h1 className="typewriter h1-font-size">¡HOLA!</h1>
+                <h1 className="typewriter h1-font-size">{languaje.hero.sayHi}</h1>
               </div>
 
               <div className="mt-[1.5rem]  px-4 py-2">
                 <h1 className="h1-font-size">
-                  I'm{" "}
+                  {languaje.hero.p1}{" "}
                   <span className="text-[var(--first-color)]">
                     Marco García,
                   </span>
                 </h1>
                 <h1 className="biggest-font-size mb-8">
-                  Web and movil developer
+                  {languaje.hero.p2}
                 </h1>
                 <p className="normal-font-size text-[var(--sub-text-color)] mb-4">
-                  Hi, I'm a passionate Web and Mobile Developer with experience
-                  building dynamic, user-friendly websites and mobile
-                  applications. I specialize in using modern technologies like
-                  React, Flutter, and Nodejs to create seamless user experiences
-                  across platforms.
+                 {languaje.hero.desc}
                 </p>
                 <div className="h-[2px] bg-[var(--sub-text-color)] mb-4"></div>
                 <div className="grid-info-header mb-4">
@@ -377,8 +383,8 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                      Year of <br />
-                      experiences
+                      {languaje.hero.yearExp[0]}<br />
+                       {languaje.hero.yearExp[1]}
                     </p>
                   </div>
 
@@ -388,8 +394,8 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                      Year in <br />
-                      the field
+                      {languaje.hero.yearField[0]}<br />
+                       {languaje.hero.yearField[1]}
                     </p>
                   </div>
 
@@ -399,10 +405,8 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                      {" "}
-                      Successful
-                      <br />
-                      Projects
+                       {languaje.hero.projects[0]}<br />
+                       {languaje.hero.projects[1]}
                     </p>
                   </div>
                 </div>
@@ -470,22 +474,11 @@ function App() {
             </div>
 
             <div className="flex flex-col justify-center items-start px-12 relative">
-              <div class="blur-bg-2"></div>
               <h2 className="h2-font-size text-[var(--first-color)] mb-8 z-10">
-                <b>Who is Marco?</b>{" "}
+                <b>{languaje.about.subtitle}</b>{" "}
               </h2>
               <p className="normal-font-size mb-4 z-10">
-                I am a Systems Engineer graduated from the National
-                Technological Institute of Mexico in Celaya and a Programming
-                Technician from CETIS No. 115. I have over 10 years of
-                experience in software and database development, and over three
-                years of professional experience. <br />
-                I specialize in web and mobile development with JavaScript,
-                React, PHP, and Java. I have worked in software companies,
-                private companies, educational institutions, and freelance
-                projects, strengthening my skills in different teams and
-                environments. <br />I also have teaching experience, sharing
-                knowledge and training new generations of developers.
+                {languaje.about.desc[0]} <br/>  <br/> {languaje.about.desc[1]}
               </p>
 
               <button
@@ -498,7 +491,7 @@ function App() {
           </div>
 
           <div>
-            {history.map((item, index) => {
+            {languaje.about.history.map((item, index) => {
               return (
                 <TimeLine
                   isRight={index % 2 === 0}
@@ -517,8 +510,7 @@ function App() {
 
       <section className="w-screen mb-32">
         <div className="container relative">
-          <div class="blur-bg"></div>
-          <div class="blur-bg-3"></div>
+        
 
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>My projects</b>
@@ -527,38 +519,11 @@ function App() {
           <div className="flex justify-center items-center mb-8">
             <div className="h-1 w-1/3 bg-white rounded-xl"></div>
           </div>
-          <h2 className="h2-font-size">Skills</h2>
-          <p>Customers who have been satisfied</p>
-
-          <div className="max-w-5xl mx-auto px-4 py-12">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Habilidades Técnicas
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
-              {Object.entries(skills).map(([category, items]) => (
-                <div
-                  key={category}
-                  className="bg-cristal shadow rounded-2xl p-6"
-                >
-                  <h3 className="h3-font-size text-[var(--first-color)] mb-4">
-                    <b>{category}</b>
-                  </h3>
-                  <ul className="flex flex-wrap gap-2">
-                    {items.map((skill) => (
-                      <img
-                        alt="skill"
-                        src={skill}
-                        className="w-12 h-12 object-cover"
-                      ></img>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
+         
 
           <div className="grid-projects">
             <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
+              <div class="blur-bg"></div>
               <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
                 <FaGithub className="w-3/4 h-3/4 text-black" />
                 <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
@@ -603,6 +568,7 @@ function App() {
             </div>
 
             <div className="bg-cristal  rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
+              <div class="blur-bg"></div> 
               <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
                 <FaGithub className="w-3/4 h-3/4 text-black" />
                 <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
@@ -737,13 +703,46 @@ function App() {
                 </div>
               </div>
             </div>
+
+
+            
+          </div>
+           <h2 className="h2-font-size">Skills</h2>
+          <p>Customers who have been satisfied</p>
+
+          <div className="max-w-5xl mx-auto px-4 py-12">
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Habilidades Técnicas
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {Object.entries(skills).map(([category, items]) => (
+                <div
+                  key={category}
+                  className="bg-cristal shadow rounded-2xl p-6 relative"
+                >
+                 <div class="blur-bg-3"></div>
+                  <h3 className="h3-font-size text-[var(--text-color)] mb-4">
+                    <b>{category}</b>
+                  </h3>
+                  <ul className="flex flex-wrap gap-4">
+                    {items.map((skill) => (
+                      <img
+                        alt="skill"
+                        src={skill}
+                        className="w-12 h-12 object-cover"
+                      ></img>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="w-screen mb-32 ">
         <div className="container relative">
-          <div class="blur-bg !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2 !h-[1000px] !w-[1000px]"></div>
+          
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>Services</b>
           </h1>
@@ -753,7 +752,8 @@ function App() {
           </div>
 
           <div className="grid-services gap-8 mb-16">
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
+              <div className="blur-bg-4"></div>
               <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Frontend development</b>
@@ -767,6 +767,7 @@ function App() {
             </div>
 
             <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
+               <div className="blur-bg-4 absolute !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2"></div>
               <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Backend development</b>

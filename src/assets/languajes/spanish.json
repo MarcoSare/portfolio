@@ -1,0 +1,83 @@
+{
+  "header": {
+    "about": "Acerca de",
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+
+  "hero": {
+    "sayHi": "¡Hola!",
+    "p1": "Soy",
+    "p2": "Desarollador web y móvil",
+    "desc": "Hola, soy un apasionado desarrollador web y móvil con experiencia en la creación de sitios web y aplicaciones móviles dinámicos e intuitivos. Me especializo en el uso de tecnologías modernas como React, Flutter y Node.js para crear experiencias de usuario fluidas en todas las plataformas.",
+    "yearExp": ["Años de", "experiencia"],
+    "yearField": ["Años en", "el ambito"],
+    "projects": ["Proyectos", "exitosos"]
+  },
+
+  "about": {
+    "title": "Acerca de mí",
+    "subtitle" : "¿Quién es Marco?",
+    "desc": [
+      "Soy Ingeniero en Sistemas Computacionales, egresado del Tecnológico Nacional de México en Celaya, con una sólida trayectoria en el desarrollo de soluciones digitales tanto web como móviles. Me especializo en el desarrollo Full Stack y en la creación de aplicaciones móviles multiplataforma, combinando experiencia técnica, pensamiento lógico y pasión por el diseño de interfaces funcionales y atractivas.",
+      "Con más de tres años de experiencia profesional y más de seis años inmerso en el ámbito del desarrollo de software, he colaborado en proyectos de diversas industrias: desde plataformas empresariales hasta aplicaciones educativas y productos digitales de consumo. He trabajado tanto en equipos multidisciplinarios como de manera independiente, lo que me ha permitido desarrollar una mentalidad adaptable, enfocada en la resolución de problemas y la entrega de resultados de alto impacto."
+    ],
+   "history": [
+  {
+    "title": "Semsa",
+    "subTitle": "Agosto 2023 – Abril 2025",
+    "imagen": "semsa_logo",
+    "page": "https://semsamx.com/",
+    "activities": [
+      {
+        "name": "Desarrollador Full Stack",
+        "text": [
+          "Diseñé y desarrollé módulos desde cero tanto para el frontend como para el backend.",
+          "Implementé interfaces de usuario utilizando React y Tailwind CSS, creando componentes personalizados y completamente responsivos.",
+          "Construí y optimicé consultas complejas en MySQL para mejorar el rendimiento y la eficiencia de la base de datos.",
+          "Aseguré la seguridad de las APIs implementando autenticación JWT, registro de actividad y políticas de respaldo de base de datos.",
+          "Configuré y administré el hosting en la nube con AWS, asegurando alta disponibilidad y escalabilidad."
+        ]
+      }
+    ]
+  },
+
+  {
+    "title": "Clever Cloud CDMX",
+    "subTitle": "Agosto 2023 – Diciembre 2023",
+    "activities": [
+      {
+        "name": "Becario en Desarrollo Web",
+        "text": [
+          "Diseñé, desarrollé y optimicé aplicaciones web, mejorando la eficiencia operativa y la experiencia de usuario.",
+          "Implementé soluciones a medida que redujeron los tiempos de carga y aumentaron las tasas de conversión.",
+          "Lideré integraciones de APIs y bases de datos, logrando una mayor escalabilidad y confiabilidad en entornos de alta demanda."
+        ]
+      }
+    ]
+  },
+
+  {
+    "title": "Instituto Tecnológico de Celaya",
+    "subTitle": "Agosto 2022 – Agosto 2023",
+    "activities": [
+      {
+        "name": "Desarrollador de Software Educativo",
+        "text": [
+          "Desarrollé un sistema de gestión de asistencia y estudiantes enfocado en los docentes.",
+          "Implementé la lógica de backend utilizando PHP y MySQL para el manejo de datos.",
+          "Diseñé y optimicé consultas SQL para mejorar el rendimiento del sistema.",
+          "Desarrollé una aplicación móvil utilizando Flutter para garantizar accesibilidad y facilidad de uso.",
+          "Implementé autenticación de usuarios y control de acceso en el sistema.",
+          "Diseñé e implementé una API REST para la comunicación entre frontend y backend."
+        ]
+      }
+    ]
+  }
+]
+
+
+  }
+}

@@ -4,7 +4,7 @@ import en_img from "../assets/images/en_usa.png";
 import es_img from "../assets/images/es_mx.png";
 import { FaChevronDown } from "react-icons/fa6";
 
-function SelectLang() {
+function SelectLang({onChange}) {
   const [focused, setFocused] = useState(false);
   const [isEng, setIsEng] = useState(true);
 
@@ -25,7 +25,12 @@ function SelectLang() {
           <img src={isEng ? en_img : es_img} alt="lang1" className="w-7 h-7" />
         </div>
         <div
-          onClick={() => setIsEng(!isEng)}
+          onClick={() => 
+          {
+            onChange(!isEng);
+            setIsEng(!isEng)
+          }
+          }
           className={`mt-2 bg-[#030712d3] hover:bg-white/10 hover:cursor-pointer h-12 w-16 -left-2  absolute -bottom-11 flex items-center justify-start p-1 ${
             focused ? "border-b border-l border-r" : "hidden"
           }`}
