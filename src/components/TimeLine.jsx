@@ -62,7 +62,7 @@ function TimeLine({
                 ref={(el) => (tiltRef.current[0] = el)}
                 className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
               >
-                <h3 className="h3-font-size text-[var(--first-color)]">
+                <h3 className="h3-font-size text-[var(--first-color-alt)]">
                   {" "}
                   <b>{title}</b>
                 </h3>
@@ -93,7 +93,7 @@ function TimeLine({
           className="w-1/5 flex flex-col items-center justify-center"
           style={{ height: `${height}px` }}
         >
-          <div className="bg-[var(--first-color)] h-[10%] w-[5px]"></div>
+          <div className="bg-[var(--first-color-alt)] h-[10%] w-[5px]"></div>
           <div
             className="bg-white h-[70px] w-[70px] rounded-full flex items-center justify-center overflow-hidden cursor-pointer"
             onClick={() => {
@@ -106,7 +106,7 @@ function TimeLine({
               className="h-full w-full object-contain"
             />
           </div>
-          <div className="bg-[var(--first-color)] h-[calc(100%-70px-10%)] w-[5px]"></div>
+          <div className="bg-[var(--first-color-alt)] h-[calc(100%-70px-10%)] w-[5px]"></div>
         </div>
 
         <div
@@ -119,7 +119,7 @@ function TimeLine({
                 ref={(el) => (tiltRef.current[0] = el)}
                 className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
               >
-                <h3 className="h3-font-size text-[var(--first-color)]">
+                <h3 className="h3-font-size text-[var(--first-color-alt)]">
                   {" "}
                   <b>{title}</b>
                 </h3>
@@ -153,7 +153,7 @@ function TimeLine({
             ref={(el) => (tiltRef.current[2] = el)}
             className="px-8 py-12 bg-[var(--body-color)] rounded-xl"
           >
-            <h3 className="h3-font-size text-[var(--first-color)]">{title}</h3>
+            <h3 className="h3-font-size text-[var(--first-color-alt)]">{title}</h3>
             <h4 className="normal-font-size">{subTitle}</h4>
             {list.map((item) => (
                   <div key={item.name}>

@@ -84,9 +84,9 @@ import "./App.css";
 import TimeLine from "./components/TimeLine";
 import TestimonialSlide from "./components/TestimonialSlide";
 
-
-import english from './assets/languajes/englis.json';
-import spanish from './assets/languajes/spanish.json';
+import english from "./assets/languajes/englis.json";
+import spanish from "./assets/languajes/spanish.json";
+import CardProject from "./components/CardProject";
 
 const testimonials = [
   {
@@ -265,12 +265,16 @@ const skillsImg = [
 ];
 
 function App() {
-  const [languaje, setLanguaje] = useState(english)
+  const [languaje, setLanguaje] = useState(english);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1098);
+
+  const [showAllPro, setShowAllPro] = useState(false)
+
+  const maxProjects = 6;
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 900);
+    const handleResize = () => setIsMobile(window.innerWidth <= 1098);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -290,28 +294,38 @@ function App() {
 
           <ul className="flex gap-1 max-[768px]:hidden">
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.home}</button>
+              <button className="px-6 py-2 rounded-xl item-li">
+                {languaje.header.home}
+              </button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.about}</button>
+              <button className="px-6 py-2 rounded-xl item-li">
+                {languaje.header.about}
+              </button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.projects}</button>
+              <button className="px-6 py-2 rounded-xl item-li">
+                {languaje.header.projects}
+              </button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.services}</button>
+              <button className="px-6 py-2 rounded-xl item-li">
+                {languaje.header.services}
+              </button>
             </li>
             <li>
-              <button className="px-6 py-2 rounded-xl item-li">{languaje.header.contact}</button>
+              <button className="px-6 py-2 rounded-xl item-li">
+                {languaje.header.contact}
+              </button>
             </li>
           </ul>
           <div>
             <SelectLang
-            onChange={(lan) => {
-              //console.log('está en inglés: ', lan)
-              const lang = lan ? english : spanish 
-              setLanguaje(lang)
-            }}
+              onChange={(lan) => {
+                //console.log('está en inglés: ', lan)
+                const lang = lan ? english : spanish;
+                setLanguaje(lang);
+              }}
             />
           </div>
         </div>
@@ -359,7 +373,9 @@ function App() {
                 <div className="h-3 w-3 bg-white absolute -top-[6px] -right-[6px]" />
                 <div className="h-3 w-3 bg-white absolute -bottom-[6px] -right-[6px]" />
                 <div className="h-3 w-3 bg-white absolute -bottom-[6px] -left-[6px]" />
-                <h1 className="typewriter h1-font-size">{languaje.hero.sayHi}</h1>
+                <h1 className="typewriter h1-font-size">
+                  {languaje.hero.sayHi}
+                </h1>
               </div>
 
               <div className="mt-[1.5rem]  px-4 py-2">
@@ -369,11 +385,9 @@ function App() {
                     Marco García,
                   </span>
                 </h1>
-                <h1 className="biggest-font-size mb-8">
-                  {languaje.hero.p2}
-                </h1>
+                <h1 className="biggest-font-size mb-8">{languaje.hero.p2}</h1>
                 <p className="normal-font-size text-[var(--sub-text-color)] mb-4">
-                 {languaje.hero.desc}
+                  {languaje.hero.desc}
                 </p>
                 <div className="h-[2px] bg-[var(--sub-text-color)] mb-4"></div>
                 <div className="grid-info-header mb-4">
@@ -383,8 +397,9 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                      {languaje.hero.yearExp[0]}<br />
-                       {languaje.hero.yearExp[1]}
+                      {languaje.hero.yearExp[0]}
+                      <br />
+                      {languaje.hero.yearExp[1]}
                     </p>
                   </div>
 
@@ -394,8 +409,9 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                      {languaje.hero.yearField[0]}<br />
-                       {languaje.hero.yearField[1]}
+                      {languaje.hero.yearField[0]}
+                      <br />
+                      {languaje.hero.yearField[1]}
                     </p>
                   </div>
 
@@ -405,8 +421,9 @@ function App() {
                       <span className="text-[var(--second-color)]">+</span>
                     </p>
                     <p className="normal-font-size">
-                       {languaje.hero.projects[0]}<br />
-                       {languaje.hero.projects[1]}
+                      {languaje.hero.projects[0]}
+                      <br />
+                      {languaje.hero.projects[1]}
                     </p>
                   </div>
                 </div>
@@ -474,11 +491,11 @@ function App() {
             </div>
 
             <div className="flex flex-col justify-center items-start px-12 relative">
-              <h2 className="h2-font-size text-[var(--first-color)] mb-8 z-10">
+              <h2 className="h2-font-size text-[var(--first-color-alt)] mb-8 z-10">
                 <b>{languaje.about.subtitle}</b>{" "}
               </h2>
               <p className="normal-font-size mb-4 z-10">
-                {languaje.about.desc[0]} <br/>  <br/> {languaje.about.desc[1]}
+                {languaje.about.desc[0]} <br /> <br /> {languaje.about.desc[1]}
               </p>
 
               <button
@@ -510,8 +527,6 @@ function App() {
 
       <section className="w-screen mb-32">
         <div className="container relative">
-        
-
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>My projects</b>
           </h1>
@@ -519,195 +534,43 @@ function App() {
           <div className="flex justify-center items-center mb-8">
             <div className="h-1 w-1/3 bg-white rounded-xl"></div>
           </div>
-         
 
           <div className="grid-projects">
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
-              <div class="blur-bg"></div>
-              <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
-                <FaGithub className="w-3/4 h-3/4 text-black" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                <div className="absolute bottom-4 left-4 text-white z-10"></div>
-              </div>
-
-              <div className="h-[400px] absolute left-[75%] transform -translate-x-1/2 w-1/3">
-                <img src={tinder_img_2} alt="tinder_img" className="h-full" />
-              </div>
-              <div className="h-[400px] absolute left-[25%] transform -translate-x-1/2 w-1/3">
-                <img src={tinder_img_3} alt="tinder_img" className="h-full" />
-              </div>
-              <div className="h-[400px] absolute left-1/2 transform -translate-x-1/2 w-1/3">
-                <img src={tinder_img} alt="tinder_img" className="h-full" />
-              </div>
-
-              <div className="h-[400px] mb-8"></div>
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices.
-              </p>
-
-              <div className="flex  flex-wrap gap-4">
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Flutter
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Dart
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  FireBase
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Node.js
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-cristal  rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
-              <div class="blur-bg"></div> 
-              <div className="relative group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
-                <FaGithub className="w-3/4 h-3/4 text-black" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                <div className="absolute bottom-4 left-4 text-white z-10"></div>
-              </div>
-
-              <div className="h-[400px] absolute left-[75%] transform -translate-x-1/2 w-1/3">
-                <img
-                  src={you_movie_img_2}
-                  alt="tinder_img"
-                  className="h-full"
-                />
-              </div>
-              <div className="h-[400px] absolute left-[25%] transform -translate-x-1/2 w-1/3">
-                <img
-                  src={you_movie_img_3}
-                  alt="tinder_img"
-                  className="h-full"
-                />
-              </div>
-              <div className="h-[400px] absolute left-1/2 transform -translate-x-1/2 w-1/3">
-                <img src={you_movie_img} alt="tinder_img" className="h-full" />
-              </div>
-
-              <div className="h-[400px] mb-8"></div>
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices. I create modern,
-                responsive, and high-performance websites tailored to your
-                needs. From simple landing pages to dynamic web applications, I
-                ensure clean code, great user experience, and seamless
-                functionality across all devices.
-              </p>
-
-              <div className="flex  flex-wrap gap-4">
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Flutter
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Dart
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  FireBase
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Node.js
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
-              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
-                <FaGithub className="w-3/4 h-3/4 text-black" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                <div className="absolute bottom-4 left-4 text-white z-10"></div>
-              </div>
-
-              <div className="h-[400px] mb-8">
-                <img src={king_img} alt="tinder_img" className="h-full" />
-              </div>
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices. I create modern,
-                responsive, and high-performance websites tailored to your
-                needs. From simple landing pages to dynamic web applications, I
-                ensure clean code, great user experience, and seamless
-                functionality across all devices.
-              </p>
-
-              <div className="flex  flex-wrap gap-4">
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Flutter
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Dart
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  FireBase
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Node.js
-                </div>
-              </div>
-            </div>
-
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
-              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
-                <FaGithub className="w-3/4 h-3/4 text-black" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                <div className="absolute bottom-4 left-4 text-white z-10"></div>
-              </div>
-
-              <div className="h-[400px] mb-8">
-              </div>
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices. I create modern,
-                responsive, and high-performance websites tailored to your
-                needs. From simple landing pages to dynamic web applications, I
-                ensure clean code, great user experience, and seamless
-                functionality across all devices.
-              </p>
-
-              <div className="flex  flex-wrap gap-4">
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Flutter
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Dart
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  FireBase
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Node.js
-                </div>
-              </div>
-            </div>
-
-
-            
+            {
+              languaje.projects.list.map((project, index) => {
+               if (showAllPro){
+                return (
+                  <CardProject
+                  project={project}
+                  index={index}
+                  />
+                )
+               }else{
+                 if(index < maxProjects){
+                  return (
+                  <CardProject
+                  project={project}
+                  index={index}
+                  />
+                )
+                }
+               }
+              })
+            }
           </div>
-           <h2 className="h2-font-size">Skills</h2>
+
+          <div className="text-center">
+                <button
+                  type="button"
+                  class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+                onClick={() => {setShowAllPro(!showAllPro)}}
+                >
+                  mostrar todo
+                </button>
+              </div>
+
+
+          <h2 className="h2-font-size">Skills</h2>
           <p>Customers who have been satisfied</p>
 
           <div className="max-w-5xl mx-auto px-4 py-12">
@@ -720,7 +583,7 @@ function App() {
                   key={category}
                   className="bg-cristal shadow rounded-2xl p-6 relative"
                 >
-                 <div class="blur-bg-3"></div>
+                  <div class="blur-bg-3"></div>
                   <h3 className="h3-font-size text-[var(--text-color)] mb-4">
                     <b>{category}</b>
                   </h3>
@@ -742,7 +605,6 @@ function App() {
 
       <section className="w-screen mb-32 ">
         <div className="container relative">
-          
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>Services</b>
           </h1>
@@ -767,7 +629,7 @@ function App() {
             </div>
 
             <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-               <div className="blur-bg-4 absolute !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2"></div>
+              <div className="blur-bg-4 absolute !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2"></div>
               <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
               <h2 className="h3-font-size mb-4">
                 <b>Backend development</b>
@@ -837,8 +699,8 @@ function App() {
           <div className="w-full">
             <h2 className="h2-font-size">Testimonials</h2>
 
-            <div className="flex justify-center container relative">
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-4">
+            <div className="flex justify-center container relative" >
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-8">
                 <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
                   <FaLeftLong className="h2-font-size text-white" />
                 </button>
@@ -861,7 +723,9 @@ function App() {
                 }}
                 modules={[Pagination, Navigation, Autoplay]}
                 onSlideChange={handleSlideChange}
-                className="w-full"
+                className="w-full "
+
+                
               >
                 {testimonials.map((testimonial, index) => {
                   return (
@@ -883,8 +747,6 @@ function App() {
           </div>
         </div>
       </section>
-
-      
 
       <section className="w-screen mb-32">
         <div className="container relative">
@@ -1115,19 +977,42 @@ function ProjectCard({ title, description, tech, image, link, repo }) {
 
 /* 
 
-    <div className="min-h-screen flex items-center justify-center bg-[#0f0f1a] relative overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-radial from-purple-800 via-purple-900 to-[#0f0f1a] opacity-70"></div>
-  
-  <div className="relative z-10 text-center text-white">
-    <h1 className="text-4xl font-bold">Carlos S. Aldazosa</h1>
-    <p className="text-xl mt-2 text-orange-400 font-semibold">
-      Software Engineer & Bug Exterminator
-    </p>
-    <p className="mt-4 text-sm text-gray-300">
-      Always learning about new paradigms and technologies<br />
-      to apply the right solution in the right place.
-    </p>
-  </div>
-</div>
+ <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
+              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
+                <FaGithub className="w-3/4 h-3/4 text-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute bottom-4 left-4 text-white z-10"></div>
+              </div>
+
+              <div className="h-[400px] mb-8"></div>
+              <h2 className="h3-font-size mb-4">
+                <b>Frontend development</b>
+              </h2>
+              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
+                I create modern, responsive, and high-performance websites
+                tailored to your needs. From simple landing pages to dynamic web
+                applications, I ensure clean code, great user experience, and
+                seamless functionality across all devices. I create modern,
+                responsive, and high-performance websites tailored to your
+                needs. From simple landing pages to dynamic web applications, I
+                ensure clean code, great user experience, and seamless
+                functionality across all devices.
+              </p>
+
+              <div className="flex  flex-wrap gap-4">
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Flutter
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Dart
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  FireBase
+                </div>
+                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
+                  Node.js
+                </div>
+              </div>
+            </div>
 
 */
