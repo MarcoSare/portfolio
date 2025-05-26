@@ -79,72 +79,179 @@
   },
 
   "projects": {
+    "title": "My projects",
+    "subtitle": "Technical skills",
+    "desc": "Throughout my journey as a developer, I have worked on various projects that combine design, functionality, and modern technology to solve real-world problems or simulate professional products. Take a look.",
+    "skillsDesc": "As a full stack developer with experience in web and mobile development, I have a strong command of a wide range of modern technologies that allow me to build complete, scalable, and well-structured solutions. My main technical skills include:",
     "list": [
       {
-        "isMobile" : true,
+        "isMobile": true,
         "name": "Tinder Clone",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
+        "desc": "This project is a dating mobile application inspired by Tinder, developed using Flutter for the user interface, Firebase for authentication and real-time data handling, and a Node.js backend for custom business logic and server-side operations.",
         "images": ["tinder_itc_1", "tinder_itc_2", "tinder_itc_3"],
-        "technologies": ["Flutter", "Dart", "FireBase"]
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/tinder_itc"
       },
-
       {
-        "isMobile" : true,
+        "isMobile": true,
         "name": "you Movie",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "you_movie_1", "you_movie_2", "you_movie_3"],
-        "technologies": ["Flutter", "Dart", "FireBase"]
+        "desc": "You Movie is a streaming application for movies and TV shows, inspired by platforms like Netflix, Max, and Disney+. It was developed with Flutter to provide a smooth, cross-platform experience and is integrated with Firebase for key functionalities such as database and storage.",
+        "images": ["you_movie_1", "you_movie_2", "you_movie_3"],
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/youmovie"
       },
       {
-        "isMobile" : true,
+        "isMobile": true,
         "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "auth_1", "auth_2", "auth_3"],
-        "technologies": ["Flutter", "Dart", "FireBase"]
-      },
-       {
-        "isMobile" : false,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "king"],
-        "technologies": ["React", "JavaScript", "Html", "Css", "Aws"]
+        "desc": "This project is a mobile application developed with Flutter that implements a user authentication system using Firebase Authentication. It is integrated with multiple social login providers, including Google, Facebook, and GitHub, to offer a fast, secure, and modern sign-in experience.",
+        "images": ["auth_1", "auth_2", "auth_3"],
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/poke_social"
       },
       {
-        "isMobile" : false,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "react_components"],
-        "technologies": ["React", "TypeScript", "Html", "Css"]
+        "isMobile": false,
+        "name": "King's Style",
+        "desc": "King’s Style is an online store specializing in men's clothing, offering a wide variety of modern and quality garments. The platform allows users to browse the catalog, filter products by category and size, and make purchases easily and securely. Additionally, it features a shopping cart and order tracking system to enhance the buying experience.",
+        "images": ["king"],
+        "technologies": ["React", "JavaScript", "Html", "Css", "Aws"],
+        "github": "https://github.com/MarcoSare/kingStyle_app"
       },
       {
-        "isMobile" : false,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "beauty"],
-        "technologies": ["JavaScript", "Html", "Css"]
+        "isMobile": false,
+        "name": "React buttons",
+        "desc": "React buttons is a reusable collection of button components developed with React and TypeScript. It is designed to facilitate the creation of consistent and accessible interfaces in web applications, offering a variety of configurable styles, sizes, and functionalities.",
+        "images": ["react_components"],
+        "technologies": ["React", "TypeScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/buttons-components",
+        "link": "https://marcosare.github.io/buttons-components/"
       },
       {
-        "isMobile" : true,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "pokedex_1", "pokedex_2", "pokedex_3"],
-        "technologies": ["Flutter", "Dart"]
+        "isMobile": false,
+        "name": "Beauty Landing Page",
+        "desc": "Beauty is a landing page designed for a potential store focused on beauty and feminine hygiene products. The page is created to attract and capture the attention of potential customers by clearly and attractively showcasing the benefits and features of the products.",
+        "images": ["beauty"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/beauty",
+        "link": "https://marcosare.github.io/beauty/"
       },
       {
-        "isMobile" : false,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "travel"],
-        "technologies": ["Flutter", "Dart"]
+        "isMobile": true,
+        "name": "Pokedex",
+        "desc": "This project is a Pokédex-style application developed with Flutter that displays complete details for each Pokémon. The app allows users to browse a list of Pokémon and view their images, types, stats, and abilities clearly and attractively.",
+        "images": ["pokedex_1", "pokedex_2", "pokedex_3"],
+        "technologies": ["Flutter", "Dart"],
+        "github": "https://github.com/MarcoSare/poke_social"
       },
       {
-        "isMobile" : false,
-        "name": "Aplication auth",
-        "desc": "Hi, I'm a passionate Web and Mobile Developer with experience building dynamic, user-friendly websites and mobile applications. I specialize in using modern technologies like React, Flutter, and Nodejs to create seamless user experiences across platforms.",
-        "images": [ "xbox"],
-        "technologies": ["Flutter", "Dart"]
+        "isMobile": false,
+        "name": "Travel",
+        "desc": "Travel is a landing page designed for a travel agency. The page showcases destinations, tour packages, and services with an attractive and easy-to-navigate design to capture the attention of potential clients and encourage them to plan their trips.",
+        "images": ["travel"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/travel-website-responsive",
+        "link": "https://marcosare.github.io/travel-website-responsive/"
+      },
+      {
+        "isMobile": false,
+        "name": "Xbox clone Landing Page",
+        "desc": "This project is a clone of the official Xbox landing page. It recreates the design, structure, and main functionalities of the original page, focusing on a responsive and visually engaging experience for both mobile and desktop devices.",
+        "images": ["xbox"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/xbox",
+        "link": "https://marcosare.github.io/xbox/"
       }
-
     ]
+  },
+  "services": {
+    "title" : "Services",
+    "subtitle" : "Testimonials",
+    "desc": "I offer customized technological solutions tailored to the needs of each client or project. My services focus on delivering functional, modern, and well-designed products, with careful attention to both performance and user experience.",
+    "testDesc": "The satisfaction of those who have trusted my work is proof of the commitment and quality I bring to each project. Here are some comments from clients and collaborators with whom I've had the pleasure of working.",
+    "list": [
+      {
+        "icon": "front",
+        "name": "Frontend development",
+        "desc": "I create modern, responsive, and high-performance websites tailored to your needs. From simple landing pages to dynamic web applications, I ensure clean code, great user experience, and seamless functionality across all devices."
+      },
+      {
+        "icon": "back",
+        "name": "Backend development",
+        "desc": "I build robust, secure, and scalable backend systems to power your applications. From database design to API development, I ensure smooth data flow, high performance, and reliable server-side functionality tailored to your business needs."
+      },
+      {
+        "icon": "app",
+        "name": "Mobile App Development",
+        "desc": "I design and develop high-quality mobile applications for Android and iOS. With a focus on performance, usability, and cross-platform compatibility, I deliver apps that offer a seamless experience and meet your business objectives."
+      },
+      {
+        "icon": "db",
+        "name": "Database Administration",
+        "desc": "I manage, optimize, and secure databases to ensure reliable performance and data integrity. From design and implementation to maintenance and backups, I provide comprehensive database solutions tailored to your application's needs."
+      },
+      {
+        "icon": "ops",
+        "name": "DevOps Services",
+        "desc": "I streamline development and deployment processes through automation, continuous integration, and scalable infrastructure. By bridging the gap between development and operations, I ensure faster delivery, improved reliability, and efficient system performance."
+      },
+      {
+        "icon": "man",
+        "name": "Software Maintenance and Support",
+        "desc": "I provide ongoing maintenance and technical support to keep your software running smoothly. From fixing bugs and applying updates to improving performance and adding new features, I ensure your systems remain reliable and up to date."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Jorge Alberto Plascencia",
+        "page": "https://www.ideamia.com.mx/",
+        "role": "General Manager of IDEAMIA – Tech",
+        "mail": "jorge@ideamia.com.mx",
+        "text": "El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio de colaborar estrechamente en diversos proyectos de desarrollo de software dentro de nuestra empresa, demostró ser un profesional altamente competente, comprometido y proactivo. Participó activamente en el diseño, desarrollo y puesta en marcha de sistemas complejos."
+      },
+
+      {
+        "name": "Ing. José Rodrigo Torres C.",
+        "page": "https://semsamx.com/",
+        "role": "General Manager of SEMSA",
+        "mail": "",
+        "text": "MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional altamente competente, comprometido y proactivo. Posee sólidos conocimientos en desarrollo de aplicaciones web, lo que le permitió participar eficazmente en la implementación, diseño, desarrollo y mantenimiento del ERP de la empresa, cumpliendo siempre con los plazos y estándares de calidad requeridos."
+      },
+      {
+        "name": "Jorge Alberto Plascencia",
+        "page": "https://www.ideamia.com.mx/",
+        "role": "General Manager of IDEAMIA – Tech",
+        "mail": "jorge@ideamia.com.mx",
+        "text": "El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio de colaborar estrechamente en diversos proyectos de desarrollo de software dentro de nuestra empresa, demostró ser un profesional altamente competente, comprometido y proactivo. Participó activamente en el diseño, desarrollo y puesta en marcha de sistemas complejos."
+      },
+
+      {
+        "name": "Ing. José Rodrigo Torres C.",
+        "page": "https://semsamx.com/",
+        "role": "General Manager of SEMSA",
+        "mail": "",
+        "text": "MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional altamente competente, comprometido y proactivo. Posee sólidos conocimientos en desarrollo de aplicaciones web, lo que le permitió participar eficazmente en la implementación, diseño, desarrollo y mantenimiento del ERP de la empresa, cumpliendo siempre con los plazos y estándares de calidad requeridos."
+      }
+    ]
+  },
+  "contact" : {
+    "title" : "Contact",
+    "name" : "Name",
+    "namePlaceholder" : "Your name",
+    "email" : "Email",
+    "emailPlaceholder" : "YourEmail@example.com",
+    "message" : "Message",
+    "messagePlaceholder" : "Write your message here... "
+  },
+
+  "footer" : {
+    "desc" : "Web and mobile developer creating modern experiences.",
+    "subtitle2" : "Links",
+    "subtitle3" : "Follow me"
+  },
+
+  "buttons" : {
+    "resume" : "Download resume",
+    "showAll" : "Show all",
+    "send" : "Send"
   }
+
 }

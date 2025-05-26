@@ -31,7 +31,8 @@
 --text-color:         #eaeaf2;    /* blanco azulado suave */
 --sub-text-color:     #afafb3; 
   --body-color: #0f0f1a;
-  --second-body-color: #0a0a12
+  --second-body-color: #0a0a11;	
+  --thirty-body-color: #040407;	
 }
 
 
@@ -194,8 +195,8 @@ body {
 
 
 .item-li:hover {
-  background: #e0e0e0da;
-  color: var(--second-color);
+  background: var(--second-body-color);
+  color: var(--first-color);
 }
 
 
@@ -227,48 +228,7 @@ body {
 
 
 
-.mac-window {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  background-color: #fff;
-  width: 100%;
-  max-width: 1200px;
-}
 
-.mac-header {
-  background: #e0e0e0;
-  height: 20px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  gap: 8px;
-}
-
-.mac-circle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-
-
-.red {
-  background-color: #ff5f57;
-}
-
-.yellow {
-  background-color: #ffbd2e;
-}
-
-.green {
-  background-color: #28c840;
-}
-
-.mac-body img {
-  width: 100%;
-  display: block;
-}
 
 
 .bg-cristal {

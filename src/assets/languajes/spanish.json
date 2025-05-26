@@ -19,65 +19,236 @@
 
   "about": {
     "title": "Acerca de mí",
-    "subtitle" : "¿Quién es Marco?",
+    "subtitle": "¿Quién es Marco?",
     "desc": [
       "Soy Ingeniero en Sistemas Computacionales, egresado del Tecnológico Nacional de México en Celaya, con una sólida trayectoria en el desarrollo de soluciones digitales tanto web como móviles. Me especializo en el desarrollo Full Stack y en la creación de aplicaciones móviles multiplataforma, combinando experiencia técnica, pensamiento lógico y pasión por el diseño de interfaces funcionales y atractivas.",
       "Con más de tres años de experiencia profesional y más de seis años inmerso en el ámbito del desarrollo de software, he colaborado en proyectos de diversas industrias: desde plataformas empresariales hasta aplicaciones educativas y productos digitales de consumo. He trabajado tanto en equipos multidisciplinarios como de manera independiente, lo que me ha permitido desarrollar una mentalidad adaptable, enfocada en la resolución de problemas y la entrega de resultados de alto impacto."
     ],
-   "history": [
-  {
-    "title": "Semsa",
-    "subTitle": "Agosto 2023 – Abril 2025",
-    "imagen": "semsa_logo",
-    "page": "https://semsamx.com/",
-    "activities": [
+    "history": [
       {
-        "name": "Desarrollador Full Stack",
-        "text": [
-          "Diseñé y desarrollé módulos desde cero tanto para el frontend como para el backend.",
-          "Implementé interfaces de usuario utilizando React y Tailwind CSS, creando componentes personalizados y completamente responsivos.",
-          "Construí y optimicé consultas complejas en MySQL para mejorar el rendimiento y la eficiencia de la base de datos.",
-          "Aseguré la seguridad de las APIs implementando autenticación JWT, registro de actividad y políticas de respaldo de base de datos.",
-          "Configuré y administré el hosting en la nube con AWS, asegurando alta disponibilidad y escalabilidad."
+        "title": "Semsa",
+        "subTitle": "Agosto 2023 – Abril 2025",
+        "imagen": "semsa_logo",
+        "page": "https://semsamx.com/",
+        "activities": [
+          {
+            "name": "Desarrollador Full Stack",
+            "text": [
+              "Diseñé y desarrollé módulos desde cero tanto para el frontend como para el backend.",
+              "Implementé interfaces de usuario utilizando React y Tailwind CSS, creando componentes personalizados y completamente responsivos.",
+              "Construí y optimicé consultas complejas en MySQL para mejorar el rendimiento y la eficiencia de la base de datos.",
+              "Aseguré la seguridad de las APIs implementando autenticación JWT, registro de actividad y políticas de respaldo de base de datos.",
+              "Configuré y administré el hosting en la nube con AWS, asegurando alta disponibilidad y escalabilidad."
+            ]
+          }
+        ]
+      },
+
+      {
+        "title": "Clever Cloud CDMX",
+        "subTitle": "Agosto 2023 – Diciembre 2023",
+        "activities": [
+          {
+            "name": "Becario en Desarrollo Web",
+            "text": [
+              "Diseñé, desarrollé y optimicé aplicaciones web, mejorando la eficiencia operativa y la experiencia de usuario.",
+              "Implementé soluciones a medida que redujeron los tiempos de carga y aumentaron las tasas de conversión.",
+              "Lideré integraciones de APIs y bases de datos, logrando una mayor escalabilidad y confiabilidad en entornos de alta demanda."
+            ]
+          }
+        ]
+      },
+
+      {
+        "title": "Instituto Tecnológico de Celaya",
+        "subTitle": "Agosto 2022 – Agosto 2023",
+        "activities": [
+          {
+            "name": "Desarrollador de Software Educativo",
+            "text": [
+              "Desarrollé un sistema de gestión de asistencia y estudiantes enfocado en los docentes.",
+              "Implementé la lógica de backend utilizando PHP y MySQL para el manejo de datos.",
+              "Diseñé y optimicé consultas SQL para mejorar el rendimiento del sistema.",
+              "Desarrollé una aplicación móvil utilizando Flutter para garantizar accesibilidad y facilidad de uso.",
+              "Implementé autenticación de usuarios y control de acceso en el sistema.",
+              "Diseñé e implementé una API REST para la comunicación entre frontend y backend."
+            ]
+          }
         ]
       }
     ]
   },
-
-  {
-    "title": "Clever Cloud CDMX",
-    "subTitle": "Agosto 2023 – Diciembre 2023",
-    "activities": [
+  "projects": {
+    "title": "Mis proyectos",
+    "subtitle": "Habilidades técnicas",
+    "desc": "A lo largo de mi trayectoria como desarrollador, he trabajado en diversos proyectos que combinan diseño, funcionalidad y tecnología moderna para resolver problemas reales o simular productos profesionales. Échale un vistazo.",
+    "skillsDesc": "Como desarrollador full stack con experiencia en desarrollo web y móvil, domino una amplia gama de tecnologías modernas que me permiten crear soluciones completas, escalables y bien estructuradas. Mis principales habilidades técnicas incluyen:",
+    "list": [
       {
-        "name": "Becario en Desarrollo Web",
-        "text": [
-          "Diseñé, desarrollé y optimicé aplicaciones web, mejorando la eficiencia operativa y la experiencia de usuario.",
-          "Implementé soluciones a medida que redujeron los tiempos de carga y aumentaron las tasas de conversión.",
-          "Lideré integraciones de APIs y bases de datos, logrando una mayor escalabilidad y confiabilidad en entornos de alta demanda."
-        ]
+        "isMobile": true,
+        "name": "Tinder Clone",
+        "desc": "Este proyecto es una aplicación móvil de citas inspirada en Tinder, desarrollada utilizando Flutter para la interfaz de usuario, Firebase para la autenticación y el manejo de datos en tiempo real, y un backend Node.js para la lógica de negocios personalizada y las operaciones del lado del servidor.",
+        "images": ["tinder_itc_1", "tinder_itc_2", "tinder_itc_3"],
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/tinder_itc"
+      },
+      {
+        "isMobile": true,
+        "name": "you Movie",
+        "desc": "You Movie es una aplicación de streaming para películas y series, inspirada en plataformas como Netflix, Maxx y Disney+. Se desarrolló con Flutter para ofrecer una experiencia fluida y multiplataforma, y ​​está integrada con Firebase para funciones clave como la base de datos y el almacenamiento.",
+        "images": ["you_movie_1", "you_movie_2", "you_movie_3"],
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/youmovie"
+      },
+      {
+        "isMobile": true,
+        "name": "Aplication auth",
+        "desc": "Este proyecto es una aplicación móvil desarrollada con Flutter que implementa un sistema de autenticación de usuarios mediante Firebase Authentication. Está integrada con múltiples proveedores de inicio de sesión sociales, como Google, Facebook y GitHub, para ofrecer una experiencia de inicio de sesión rápida, segura y moderna.",
+        "images": ["auth_1", "auth_2", "auth_3"],
+        "technologies": ["Flutter", "Dart", "FireBase"],
+        "github": "https://github.com/MarcoSare/poke_social"
+      },
+      {
+        "isMobile": false,
+        "name": "King's Style",
+        "desc": "King’s Style es una tienda online especializada en ropa masculina que ofrece una amplia variedad de prendas modernas y de calidad. La plataforma permite a los usuarios explorar el catálogo, filtrar productos por categoría y talla, y realizar compras de forma fácil y segura. Además, cuenta con un carrito de compra y un sistema de seguimiento de pedidos para optimizar la experiencia de compra.",
+        "images": ["king"],
+        "technologies": ["React", "JavaScript", "Html", "Css", "Aws"],
+        "github": "https://github.com/MarcoSare/kingStyle_app"
+      },
+      {
+        "isMobile": false,
+        "name": "React buttons",
+        "desc": "React Buttons es una colección reutilizable de componentes de botones desarrollado con React y TypeScript. Está diseñado para facilitar la creación de interfaces consistentes y accesibles en aplicaciones web, ofreciendo una variedad de estilos, tamaños y funcionalidades configurables.",
+        "images": ["react_components"],
+        "technologies": ["React", "TypeScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/buttons-components",
+        "link": "https://marcosare.github.io/buttons-components/"
+      },
+      {
+        "isMobile": false,
+        "name": "Beauty Landing Page",
+        "desc": "Beauty es una landing page diseñada para una tienda potencial especializada en productos de belleza e higiene femenina. La página está diseñada para atraer y captar la atención de clientes potenciales mostrando de forma clara y atractiva los beneficios y características de los productos.",
+        "images": ["beauty"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/beauty",
+        "link": "https://marcosare.github.io/beauty/"
+      },
+      {
+        "isMobile": true,
+        "name": "Pokedex",
+        "desc": "Este proyecto es una aplicación estilo Pokédex, desarrollada con Flutter, que muestra todos los detalles de cada Pokémon. Permite explorar una lista de Pokémon y ver sus imágenes, tipos, estadísticas y habilidades de forma clara y atractiva.",
+        "images": ["pokedex_1", "pokedex_2", "pokedex_3"],
+        "technologies": ["Flutter", "Dart"],
+        "github": "https://github.com/MarcoSare/poke_social"
+      },
+      {
+        "isMobile": false,
+        "name": "Travel",
+        "desc": "Travel es una landing page diseñada para una agencia de viajes. La página presenta destinos, paquetes turísticos y servicios con un diseño atractivo y de fácil navegación para captar la atención de clientes potenciales y animarlos a planificar sus viajes.",
+        "images": ["travel"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/travel-website-responsive",
+        "link": "https://marcosare.github.io/travel-website-responsive/"
+      },
+      {
+        "isMobile": false,
+        "name": "Xbox clone Landing Page",
+        "desc": "Este proyecto es un clon de la página oficial de Xbox. Recrea el diseño, la estructura y las principales funcionalidades de la página original, centrándose en una experiencia responsiva y visualmente atractiva tanto para dispositivos móviles como de escritorio.",
+        "images": ["xbox"],
+        "technologies": ["JavaScript", "Html", "Css"],
+        "github": "https://github.com/MarcoSare/xbox",
+        "link": "https://marcosare.github.io/xbox/"
       }
     ]
   },
-
-  {
-    "title": "Instituto Tecnológico de Celaya",
-    "subTitle": "Agosto 2022 – Agosto 2023",
-    "activities": [
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Testimonios",
+    "desc": "Ofrezco soluciones tecnológicas personalizadas, adaptadas a las necesidades de cada cliente o proyecto. Mis servicios se centran en ofrecer productos funcionales, modernos y de excelente diseño, con especial atención tanto al rendimiento como a la experiencia del usuario.",
+    "testDesc": "La satisfacción de quienes han confiado en mi trabajo demuestra el compromiso y la calidad que aporto a cada proyecto. Aquí les dejo algunos comentarios de clientes y colaboradores con quienes he tenido el placer de trabajar.",
+    "list": [
       {
-        "name": "Desarrollador de Software Educativo",
-        "text": [
-          "Desarrollé un sistema de gestión de asistencia y estudiantes enfocado en los docentes.",
-          "Implementé la lógica de backend utilizando PHP y MySQL para el manejo de datos.",
-          "Diseñé y optimicé consultas SQL para mejorar el rendimiento del sistema.",
-          "Desarrollé una aplicación móvil utilizando Flutter para garantizar accesibilidad y facilidad de uso.",
-          "Implementé autenticación de usuarios y control de acceso en el sistema.",
-          "Diseñé e implementé una API REST para la comunicación entre frontend y backend."
-        ]
+        "icon": "front",
+        "name": "Desarrollo Frontend",
+        "desc": "Creo sitios web modernos, responsivos y de alto rendimiento, adaptados a tus necesidades. Desde landing pages sencillas hasta aplicaciones web dinámicas, garantizo un código limpio, una excelente experiencia de usuario y una funcionalidad fluida en todos los dispositivos."
+      },
+      {
+        "icon": "back",
+        "name": "Desarrollo Backend",
+        "desc": "Construyo sistemas backend robustos, seguros y escalables para impulsar sus aplicaciones. Desde el diseño de bases de datos hasta el desarrollo de API, garantizo un flujo de datos fluido, un alto rendimiento y una funcionalidad fiable del lado del servidor, adaptada a las necesidades de su negocio."
+      },
+      {
+        "icon": "app",
+        "name": "Desarrollo de aplicaciones móviles",
+        "desc": "Diseño y desarrollo aplicaciones móviles de alta calidad para Android e iOS. Centrado en el rendimiento, la usabilidad y la compatibilidad multiplataforma, ofrezco aplicaciones que ofrecen una experiencia fluida y cumplen los objetivos de su negocio."
+      },
+      {
+        "icon": "db",
+        "name": "Administración de base de datos",
+        "desc": "Gestiono, optimizo y protejo bases de datos para garantizar un rendimiento fiable y la integridad de los datos. Desde el diseño y la implementación hasta el mantenimiento y las copias de seguridad, ofrezco soluciones integrales de bases de datos adaptadas a las necesidades de su aplicación."
+      },
+      {
+        "icon": "ops",
+        "name": "Servicios de DevOps",
+        "desc": "Optimizo los procesos de desarrollo e implementación mediante la automatización, la integración continua y una infraestructura escalable. Al conectar el desarrollo con las operaciones, garantizo una entrega más rápida, una mayor confiabilidad y un rendimiento eficiente del sistema."
+      },
+      {
+        "icon": "man",
+        "name": "Mantenimineto y soporte de Software",
+        "desc": "Ofrezco mantenimiento y soporte técnico continuos para garantizar el correcto funcionamiento de su software. Desde la corrección de errores y la aplicación de actualizaciones hasta la mejora del rendimiento y la incorporación de nuevas funciones, garantizo la fiabilidad y la actualización de sus sistemas."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Jorge Alberto Plascencia",
+        "page": "https://www.ideamia.com.mx/",
+        "role": "Director general de IDEAMIA – Tech",
+        "mail": "jorge@ideamia.com.mx",
+        "text": "El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio de colaborar estrechamente en diversos proyectos de desarrollo de software dentro de nuestra empresa, demostró ser un profesional altamente competente, comprometido y proactivo. Participó activamente en el diseño, desarrollo y puesta en marcha de sistemas complejos."
+      },
+
+      {
+        "name": "Ing. José Rodrigo Torres C.",
+        "page": "https://semsamx.com/",
+        "role": "Director general de SEMSA",
+        "mail": "",
+        "text": "MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional altamente competente, comprometido y proactivo. Posee sólidos conocimientos en desarrollo de aplicaciones web, lo que le permitió participar eficazmente en la implementación, diseño, desarrollo y mantenimiento del ERP de la empresa, cumpliendo siempre con los plazos y estándares de calidad requeridos."
+      },
+      {
+        "name": "Jorge Alberto Plascencia",
+        "page": "https://www.ideamia.com.mx/",
+        "role": "Director general de IDEAMIA – Tech",
+        "mail": "jorge@ideamia.com.mx",
+        "text": "El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio de colaborar estrechamente en diversos proyectos de desarrollo de software dentro de nuestra empresa, demostró ser un profesional altamente competente, comprometido y proactivo. Participó activamente en el diseño, desarrollo y puesta en marcha de sistemas complejos."
+      },
+
+      {
+        "name": "Ing. José Rodrigo Torres C.",
+        "page": "https://semsamx.com/",
+        "role": "Director general de SEMSA",
+        "mail": "",
+        "text": "MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional altamente competente, comprometido y proactivo. Posee sólidos conocimientos en desarrollo de aplicaciones web, lo que le permitió participar eficazmente en la implementación, diseño, desarrollo y mantenimiento del ERP de la empresa, cumpliendo siempre con los plazos y estándares de calidad requeridos."
       }
     ]
-  }
-]
-
-
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo",
+    "emailPlaceholder": "TuCorreo@ejemplo.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí... "
+  },
+  "footer" : {
+    "desc" : "Desarrollador web y móvil creando experiencias modernas.",
+    "subtitle2" : "Enlaces",
+     "subtitle3" : "Sígueme"
+  },
+  "buttons" : {
+    "resume" : "Descargar CV",
+    "showAll" : "Mostrar todo",
+    "send" : "Enviar"
   }
 }

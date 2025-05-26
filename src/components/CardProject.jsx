@@ -38,57 +38,63 @@ import auth_img from "../assets/images/auth.png";
 import auth_img_2 from "../assets/images/auth_2.png";
 import auth_img_3 from "../assets/images/auth_3.png";
 
-
 import pokedex_img from "../assets/images/pokedex.png";
 import pokedex_img_2 from "../assets/images/pokedex_2.png";
 import pokedex_img_3 from "../assets/images/pokedex_3.png";
 
 import calendar_img from "../assets/images/calendar.png";
 
+import { FaGithub, FaLink } from "react-icons/fa6";
 
 const images = {
-    'tinder_itc_1' : tinder_img,
-    'tinder_itc_2' : tinder_img_2,
-    'tinder_itc_3' : tinder_img_3,
-    'you_movie_1' : you_movie_img,
-    'you_movie_2' : you_movie_img_2,
-    'you_movie_3' : you_movie_img_3,
-    'auth_1': auth_img_2,
-    'auth_2': auth_img,
-    'auth_3': auth_img_3,
-    "king" : king_img,
-    "react_components" : react_components,
-    'beauty' : beauty_img,
-    "pokedex_1" : pokedex_img,
-    "pokedex_2" : pokedex_img_2,
-    "pokedex_3" : pokedex_img_3,
-    "travel" : travel_img,
-    "xbox" : xbox_img
-}
-
+  tinder_itc_1: tinder_img,
+  tinder_itc_2: tinder_img_2,
+  tinder_itc_3: tinder_img_3,
+  you_movie_1: you_movie_img,
+  you_movie_2: you_movie_img_2,
+  you_movie_3: you_movie_img_3,
+  auth_1: auth_img_2,
+  auth_2: auth_img,
+  auth_3: auth_img_3,
+  king: king_img,
+  react_components: react_components,
+  beauty: beauty_img,
+  pokedex_1: pokedex_img,
+  pokedex_2: pokedex_img_2,
+  pokedex_3: pokedex_img_3,
+  travel: travel_img,
+  xbox: xbox_img,
+};
 
 const technologies = {
-    'Flutter' : flutter_img,
-    'Dart' : dart_img,
-    'FireBase' : firebase_img,
-    "React" : react_img,
-    "Html" : html_img,
-    "Css" : css_img,
-    "JavaScript" : js_img,
-    "Aws": aws_img,
-    "TypeScript" : ts_img
-}
+  Flutter: flutter_img,
+  Dart: dart_img,
+  FireBase: firebase_img,
+  React: react_img,
+  Html: html_img,
+  Css: css_img,
+  JavaScript: js_img,
+  Aws: aws_img,
+  TypeScript: ts_img,
+};
 
-const bg = [
-    "bg-gra", "bg-gra-2", "bg-gra-3"
-]
+const bg = ["bg-gra", "bg-gra-2", "bg-gra-3"];
 
 function CardProject({ project, index }) {
-
-
   return (
-    <div className="bg-[var(--second-body-color)]  rounded-xl  min-h-[300px] flex flex-col items-start justify-start  relative">
-      <div className=" relative w-full h-[400px] rounded-xl bg-gra-3 overflow-hidden">
+    <div className="bg-[var(--second-body-color)]  rounded-xl  min-h-[300px] flex flex-col items-start justify-start  relative ">
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute left-4 top-3 group overflow-hidden border-2 border-[var(--second-body-color)] w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white"
+      >
+        <FaGithub className="w-3/4 h-3/4 text-black" />
+        <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+        <div className="absolute bottom-4 left-4 text-white z-10"></div>
+      </a>
+      <div className="blur-bg-3 pointer-events-none"></div>
+      <div className=" relative w-full h-[400px] rounded-xl bg-[var(--thirty-body-color)] overflow-hidden">
         {project.isMobile ? (
           <>
             <div className="h-[400px] absolute left-0  w-1/2">
@@ -127,25 +133,54 @@ function CardProject({ project, index }) {
         )}
       </div>
       <div className="mb-4 px-8 py-12">
-        <h2 className="h3-font-size mb-4 text-[var(--first-color-alt)]">
-          <b>{project.name}</b>
-        </h2>
+        <div className="flex flex-wrap justify-start items-center gap-4 mb-4">
+          {!project.link ? (
+            <h2 className="h3-font-size  text-[var(--first-color-alt)]">
+              <b>{project.name}</b>
+            </h2>
+          ) : (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h3-font-size  text-[var(--first-color-alt)]"
+            >
+              <b>{project.name}</b>
+            </a>
+          )}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="overflow-hidden border-2 border-[var(--second-body-color)] w-8 h-8 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white"
+            >
+              <FaLink className="w-3/4 h-3/4 text-black" />
+            </a>
+          )}
+        </div>
+
         <p className="small-font-size text-[var(--sub-text-color)] mb-4">
           {project.desc}
         </p>
 
-        <div className="flex  flex-wrap gap-4">
+        <div className="flex  flex-wrap gap-4 mb-4">
           {project.technologies.map((techno) => {
             return (
-              <div className="bg-cristal px-3 py-1 rounded-full text-sm font-medium border border-white flex justify-center items-center gap-4" key={techno}>
-               <img src={technologies[techno]} alt="flutter_img" className="h-6 w-6" />
+              <div
+                className="bg-cristal px-3 py-1 rounded-full text-sm font-medium border border-white flex justify-center items-center gap-4"
+                key={techno}
+              >
+                <img
+                  src={technologies[techno]}
+                  alt="flutter_img"
+                  className="h-6 w-6"
+                />
                 <span>{techno}</span>
               </div>
             );
           })}
         </div>
-
-       
       </div>
     </div>
   );
@@ -153,7 +188,7 @@ function CardProject({ project, index }) {
 
 export default CardProject;
 {
-    /* 
+  /* 
      <div className="flex  flex-wrap gap-4">
           {project.technologies.map((techno) => {
             return (

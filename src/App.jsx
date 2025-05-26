@@ -30,7 +30,9 @@ import {
   FaRightLong,
   FaDownload,
   FaLaptop,
-  FaUser,
+  FaUser, 
+  FaCopy 
+
 } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
 import user from "./assets/images/user.png";
@@ -88,153 +90,8 @@ import english from "./assets/languajes/englis.json";
 import spanish from "./assets/languajes/spanish.json";
 import CardProject from "./components/CardProject";
 
-const testimonials = [
-  {
-    name: "Jorge Alberto Plascencia",
-    page: "https://www.ideamia.com.mx/",
-    role: "Director General IDEAMIA – Tech",
-    mail: "jorge@ideamia.com.mx",
-    text: ` El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio
-            de colaborar estrechamente en diversos proyectos de desarrollo de
-            software dentro de nuestra empresa, demostró ser un profesional
-            altamente competente, comprometido y proactivo. Participó
-            activamente en el diseño, desarrollo y puesta en marcha de sistemas
-            complejos.`,
-  },
 
-  {
-    name: "Ing. José Rodrigo Torres C.",
-    page: "https://semsamx.com/",
-    role: " Director General SEMSA",
-    mail: "",
-    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.`,
-  },
 
-  {
-    name: "Ing. Jorge Eduardo Aguacaliente Silis",
-    page: "https://semsamx.com/",
-    role: " Director General SEMSA",
-    mail: "",
-    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.`,
-  },
-
-  {
-    name: "Jorge Alberto Plascencia",
-    page: "https://www.ideamia.com.mx/",
-    role: "Director General IDEAMIA – Tech",
-    mail: "jorge@ideamia.com.mx",
-    text: ` El Ing. Marco Isaías Ramírez García, con quien tuve el privilegio
-            de colaborar estrechamente en diversos proyectos de desarrollo de
-            software dentro de nuestra empresa, demostró ser un profesional
-            altamente competente, comprometido y proactivo. Participó
-            activamente en el diseño, desarrollo y puesta en marcha de sistemas
-            complejos.`,
-  },
-
-  {
-    name: "Ing. José Rodrigo Torres C.",
-    page: "https://semsamx.com/",
-    role: " Director General SEMSA",
-    mail: "",
-    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.`,
-  },
-
-  {
-    name: "Ing. Jorge Eduardo Aguacaliente Silis",
-    page: "https://semsamx.com/",
-    role: " Director General SEMSA",
-    mail: "",
-    text: ` MARCO ISAÍAS RAMÍREZ GARCÍA demostró ser un profesional
-                        altamente competente, comprometido y proactivo. Posee
-                        sólidos conocimientos en desarrollo de aplicaciones web,
-                        lo que le permitió participar eficazmente en la
-                        implementación, diseño, desarrollo y mantenimiento del
-                        ERP de la empresa, cumpliendo siempre con los plazos y
-                        estándares de calidad requeridos.`,
-  },
-];
-
-const history = [
-  {
-    title: "Semsa",
-    subTitle: "August 2023 – current",
-    imagen: semsa_logo,
-    page: "https://semsamx.com/",
-    activities: [
-      {
-        name: "Custom ERP Development.",
-        text: [
-          "Designed and developed modules from scratch for both the frontend and backend.",
-          "Implemented the user interface using React and Tailwind CSS, creating custom and responsive.",
-          "Built and optimized complex queries in MySQL to improve database performance and efficiency.",
-          "Ensured API security by implementing JWT authentication, activity logs, and database backup policies.",
-          "Configured and managed cloud hosting using AWS, ensuring high availability and scalability.",
-        ],
-      },
-
-      {
-        name: "eCommerce Project Initiation.",
-        text: [
-          "Implemented user interfaces with React and Tailwind CSS, focusing on design and usability",
-          "Designed the initial backend architecture using Node.js with Express and MongoDB, ensuring a solid foundation for system scalability and security.",
-        ],
-      },
-    ],
-  },
-
-  {
-    title: "Clever cloud CDMX ",
-    subTitle: "August 2023 – December 2023",
-    activities: [
-      {
-        name: "Desktop Software Developer Intern",
-        text: [
-          "Provided technical support and ongoing maintenance for a desktop point-of-sale application.",
-          "Developed new modules and features based on specific client requirements.",
-          "Implemented solutions using Java Swing for the graphical user interface and MySQL for data management.",
-          "Used Git Bucket for version control, efficiently managing code changes.",
-          "Optimized queries and database structures to improve system performance.",
-        ],
-      },
-    ],
-  },
-
-  {
-    title: "Instituto Tecnológico de Celaya",
-    subTitle: "August 2022 – August 2023",
-    activities: [
-      {
-        name: "Educational Software Developer",
-        text: [
-          "Developed an attendance and student management system focused on teachers.",
-          "Implemented backend logic using PHP and MySQL for data management.",
-          "Designed and optimized SQL queries to improve system performance and efficiency.",
-          "Developed the mobile application using Flutter to ensure accessibility and ease of use.",
-          "Implemented user authentication and access control in the system.",
-          "Designed and implemented a REST API for communication between the frontend and backend.",
-        ],
-      },
-    ],
-  },
-];
 
 const skills = {
   Frontend: [html_img, css_img, js_img, ts_img, react_img, tailwind_img],
@@ -269,7 +126,7 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1098);
 
-  const [showAllPro, setShowAllPro] = useState(false)
+  const [showAllPro, setShowAllPro] = useState(false);
 
   const maxProjects = 6;
 
@@ -282,6 +139,27 @@ function App() {
   const handleSlideChange = (swiper) => {
     //console.log("holaaaa", swiper.realIndex);
     setActiveIndex(swiper.realIndex);
+  };
+
+  const iconsServices = {
+    front: (
+      <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
+    back: (
+      <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
+    app: (
+      <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
+    db: (
+      <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
+    ops: (
+      <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
+    man: (
+      <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
+    ),
   };
 
   return (
@@ -472,7 +350,7 @@ function App() {
       <section className="w-full mb-32 pb-8 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16">
         <div className="container ">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
-            <b>About me</b>
+            <b>{languaje.about.title}</b>
           </h1>
 
           <div className="flex justify-center items-center mb-8">
@@ -502,7 +380,7 @@ function App() {
                 type="button"
                 class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
               >
-                Download CV
+                {languaje.buttons.resume}
               </button>
             </div>
           </div>
@@ -528,62 +406,59 @@ function App() {
       <section className="w-screen mb-32">
         <div className="container relative">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
-            <b>My projects</b>
+            <b>{languaje.projects.title}</b>
           </h1>
 
           <div className="flex justify-center items-center mb-8">
             <div className="h-1 w-1/3 bg-white rounded-xl"></div>
           </div>
 
+          <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+            <p className="normal-font-size">{languaje.projects.desc}</p>
+          </div>
+
           <div className="grid-projects">
-            {
-              languaje.projects.list.map((project, index) => {
-               if (showAllPro){
-                return (
-                  <CardProject
-                  project={project}
-                  index={index}
-                  />
-                )
-               }else{
-                 if(index < maxProjects){
-                  return (
-                  <CardProject
-                  project={project}
-                  index={index}
-                  />
-                )
+            {languaje.projects.list.map((project, index) => {
+              if (showAllPro) {
+                return <CardProject project={project} index={index} />;
+              } else {
+                if (index < maxProjects) {
+                  return <CardProject project={project} index={index} />;
                 }
-               }
-              })
-            }
+              }
+            })}
           </div>
 
           <div className="text-center">
-                <button
-                  type="button"
-                  class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
-                onClick={() => {setShowAllPro(!showAllPro)}}
-                >
-                  mostrar todo
-                </button>
-              </div>
-
-
-          <h2 className="h2-font-size">Skills</h2>
-          <p>Customers who have been satisfied</p>
+            <button
+              type="button"
+              class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+              onClick={() => {
+                setShowAllPro(!showAllPro);
+              }}
+            >
+              {languaje.buttons.showAll}
+            </button>
+          </div>
 
           <div className="max-w-5xl mx-auto px-4 py-12">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Habilidades Técnicas
+            <h2 className="h2-font-size text-[var(--first-color-alt)] font-bold mb-8 text-center">
+              {languaje.projects.subtitle}
             </h2>
+
+            <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                {languaje.projects.skillsDesc}
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {Object.entries(skills).map(([category, items]) => (
                 <div
                   key={category}
-                  className="bg-cristal shadow rounded-2xl p-6 relative"
+                  className="bg-[var(--second-body-color)]  shadow rounded-2xl p-6 relative"
                 >
-                  <div class="blur-bg-3"></div>
+                  <div className="blur-bg-3"></div>
                   <h3 className="h3-font-size text-[var(--text-color)] mb-4">
                     <b>{category}</b>
                   </h3>
@@ -603,103 +478,48 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32 ">
+      <section className="w-screen mb-32 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16 pb-20">
         <div className="container relative">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
-            <b>Services</b>
+            <b>{languaje.services.title}</b>
           </h1>
 
           <div className="flex justify-center items-center mb-8">
             <div className="h-1 w-1/3 bg-white rounded-xl"></div>
           </div>
 
+          <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+            <p className="normal-font-size">{languaje.services.desc}</p>
+          </div>
+
           <div className="grid-services gap-8 mb-16">
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
-              <div className="blur-bg-4"></div>
-              <FaCode className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <div className="blur-bg-4 absolute !top-1/2 !left-1/2 !transform !-translate-x-1/2 !-translate-y-1/2"></div>
-              <FaCodeBranch className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Backend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I build robust, secure, and scalable backend systems to power
-                your applications. From database design to API development, I
-                ensure smooth data flow, high performance, and reliable
-                server-side functionality tailored to your business needs.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaAndroid className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Mobile App Development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I design and develop high-quality mobile applications for
-                Android and iOS. With a focus on performance, usability, and
-                cross-platform compatibility, I deliver apps that offer a
-                seamless experience and meet your business objectives.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaDatabase className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Database Administration</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I manage, optimize, and secure databases to ensure reliable
-                performance and data integrity. From design and implementation
-                to maintenance and backups, I provide comprehensive database
-                solutions tailored to your application's needs.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaCloud className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>DevOps Services</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I streamline development and deployment processes through
-                automation, continuous integration, and scalable infrastructure.
-                By bridging the gap between development and operations, I ensure
-                faster delivery, improved reliability, and efficient system
-                performance.
-              </p>
-            </div>
-
-            <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12">
-              <FaToolbox className="text-[var(--first-color)] biggest-font-size mb-4" />
-              <h2 className="h3-font-size mb-4">
-                <b>Software Maintenance and Support</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)]">
-                I provide ongoing maintenance and technical support to keep your
-                software running smoothly. From fixing bugs and applying updates
-                to improving performance and adding new features, I ensure your
-                systems remain reliable and up to date.
-              </p>
-            </div>
+            {languaje.services.list.map((service) => {
+              return (
+                <div className="bg-[var(--body-color)] rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12 relative">
+                  {/* <div className="blur-bg-4"></div> */}
+                  {iconsServices[service.icon]}
+                  <h2 className="h3-font-size mb-4">
+                    <b>{service.name}</b>
+                  </h2>
+                  <p className="small-font-size text-[var(--sub-text-color)]">
+                    {service.desc}
+                  </p>
+                </div>
+              );
+            })}
           </div>
 
           <div className="w-full">
-            <h2 className="h2-font-size">Testimonials</h2>
+            <h2 className="h2-font-size text-[var(--first-color-alt)] font-bold mb-8 text-center">
+             {languaje.services.subtitle}
+            </h2>
+            <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+              <p className="small-font-size text-[var(--sub-text-color)]">
+                {languaje.services.testDesc}
+              </p>
+            </div>
 
-            <div className="flex justify-center container relative" >
+            <div className="flex justify-center container relative">
               <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-8">
                 <button className="custom-prev p-3 bg-[var(--first-color)] backdrop-blur-md rounded-full hover:bg-[var(--second-color)] transition">
                   <FaLeftLong className="h2-font-size text-white" />
@@ -723,11 +543,9 @@ function App() {
                 }}
                 modules={[Pagination, Navigation, Autoplay]}
                 onSlideChange={handleSlideChange}
-                className="w-full "
-
-                
+                className="w-full"
               >
-                {testimonials.map((testimonial, index) => {
+                {languaje.services.testimonials.map((testimonial, index) => {
                   return (
                     <SwiperSlide
                       style={{
@@ -750,53 +568,56 @@ function App() {
 
       <section className="w-screen mb-32">
         <div className="container relative">
-          <div class="blur-bg"></div>
-          <div class="blur-bg-3"></div>
-          <h1 className="h1-font-size text-[var(--first-color)] mb-8">
-            Contact
+          <div class="blur-bg-3 pointer-events-none"></div>
+          <h1 className="h1-font-size text-[var(--first-color)] text-center">
+            <b>{languaje.contact.title}</b>
           </h1>
 
-          <div className="max-w-[1400px] mx-auto px-4 py-12">
-            <form className="bg-cristal shadow-md rounded-2xl p-6 space-y-6">
+          <div className="flex justify-center items-center mb-8">
+            <div className="h-1 w-1/3 bg-white rounded-xl"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto px-4 py-12">
+            <form className="bg-[var(--second-body-color)] shadow-md rounded-2xl p-6 space-y-6">
               <div>
                 <label htmlFor="name" className="">
-                  Nombre
+                  {languaje.contact.name}
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Tu nombre"
+                  className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
+                  placeholder={languaje.contact.namePlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="">
-                  Correo electrónico
+                  {languaje.contact.email}
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   required
-                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="tucorreo@ejemplo.com"
+                  className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
+                  placeholder={languaje.contact.emailPlaceholder}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="">
-                  Mensaje
+                  {languaje.contact.message}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={4}
                   required
-                  className="mt-1 block w-full border bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Escribe tu mensaje aquí..."
+                  className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
+                  placeholder={languaje.contact.messagePlaceholder}
                 />
               </div>
 
@@ -805,7 +626,7 @@ function App() {
                   type="button"
                   class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
                 >
-                  Download CV
+                  {languaje.buttons.send}
                 </button>
               </div>
             </form>
@@ -817,28 +638,28 @@ function App() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
           {/* Branding */}
           <div>
-            <h3 className="text-xl font-bold text-white">TuNombre.dev</h3>
-            <p className="mt-2 text-sm text-gray-400">
-              Desarrollador web y móvil creando experiencias modernas.
+            <h3 className="font-bold text-[var(--text-color)] mb-2">MarcoSare.dev</h3>
+            <p className="smaller-font-size text-[var(--sub-text-color)]">
+              {languaje.footer.desc}
             </p>
           </div>
 
           {/* Navegación */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-2">Enlaces</h4>
+            <h4 className="font-bold text-[var(--text-color)] mb-2">{languaje.footer.subtitle2}</h4>
             <ul className="space-y-1 text-sm">
               <li>
-                <a href="#inicio" className="hover:underline">
+                <a href="#inicio" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="hover:underline">
+                <a href="#proyectos" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
                   Proyectos
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:underline">
+                <a href="#contacto" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
                   Contacto
                 </a>
               </li>
@@ -847,47 +668,37 @@ function App() {
 
           {/* Redes sociales */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-2">Sígueme</h4>
-            <div className="flex gap-4 mt-2">
+            <h4 className="font-bold text-[var(--text-color)] mb-4">{languaje.footer.subtitle3}</h4>
+            <div className="flex gap-4 mt-2 flex-wrap justify-start items-center">
               <a
                 href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg
-                  className="w-5 h-5 fill-current hover:text-white"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 0C5.37...z" />
-                </svg>
+                <FaGithub className="text-[var(--sub-text-color)] w-6 h-6"/>
               </a>
+              
               <a
-                href="https://linkedin.com/"
+                href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg
-                  className="w-5 h-5 fill-current hover:text-white"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M19 0h-14c-2.76...z" />
-                </svg>
+                <FaLinkedin className="text-[var(--sub-text-color)] w-6 h-6"/>
               </a>
-              <a href="mailto:correo@ejemplo.com">
-                <svg
-                  className="w-5 h-5 fill-current hover:text-white"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M4 4h16v16H4z" />
-                </svg>
-              </a>
+
+              <div className="flex justify-start items-center p-2 bg-[var(--body-color)] rounded-lg gap-4">
+                <FaEnvelope className="text-[var(--sub-text-color)] w-6 h-6"/>
+                <span className="smaller-font-size text-[var(--sub-text-color)]">marcoramirez3700@gmail.com</span>
+                <FaCopy className="text-[var(--sub-text-color)] w-4 h-4 hover:cursor-pointer"/>
+
+              </div>
+
             </div>
           </div>
         </div>
 
         <div className="mt-8 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} TuNombre.dev — Todos los derechos
-          reservados.
+          {new Date().getFullYear()} MarcoSare.dev
         </div>
       </footer>
     </>
@@ -926,54 +737,6 @@ export default App;
             ))}
           </Marquee>  
 */
-
-// components/ProjectCard.tsx
-function ProjectCard({ title, description, tech, image, link, repo }) {
-  return (
-    <div className="bg-white shadow-md rounded-2xl overflow-hidden transition-transform hover:scale-105">
-      <img src={image} alt={title} className="w-full h-48 object-cover" />
-
-      <div className="p-5">
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
-        <p className="text-gray-600 text-sm mb-4">{description}</p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tech.map((t) => (
-            <span
-              key={t}
-              className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex gap-4">
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline text-sm font-medium"
-            >
-              🔗 Ver proyecto
-            </a>
-          )}
-          {repo && (
-            <a
-              href={repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:underline text-sm font-medium"
-            >
-              💻 Código fuente
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* 
 
