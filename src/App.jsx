@@ -1,20 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import Marquee from "react-fast-marquee";
-
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import {
   FaHouse,
   FaUserTie,
-  FaFileCode,
   FaEnvelope,
   FaGithub,
   FaLinkedin,
@@ -25,21 +15,14 @@ import {
   FaDatabase,
   FaCloud,
   FaToolbox,
-  FaCircleUser,
   FaLeftLong,
   FaRightLong,
-  FaDownload,
   FaLaptop,
-  FaUser, 
-  FaCopy 
-
+  FaCopy,
 } from "react-icons/fa6";
 import logo from "./assets/images/logo.png";
-import user from "./assets/images/user.png";
-import graph from "./assets/images/graph.png";
-import graph1 from "./assets/images/graph (1).png";
-import graph3 from "./assets/images/graph_3.svg";
-import graph4 from "./assets/images/graph_4.svg";
+import yop from "./assets/images/yop.jpg";
+import yop2 from "./assets/images/yop_2.jpg";
 import node_img from "./assets/images/nodejs.svg";
 import js_img from "./assets/images/js.svg";
 import ts_img from "./assets/images/ts.png";
@@ -48,7 +31,6 @@ import html_img from "./assets/images/html.svg";
 import css_img from "./assets/images/css.svg";
 import tailwind_img from "./assets/images/tailwind.svg";
 import postgresql_img from "./assets/images/postgresql.svg";
-
 import flutter_img from "./assets/images/flutter.svg";
 import dart_img from "./assets/images/dart.png";
 import php_img from "./assets/images/php.svg";
@@ -58,24 +40,8 @@ import mysql_img from "./assets/images/mysql.svg";
 import aws_img from "./assets/images/aws.svg";
 import mongo_img from "./assets/images/mongodb.svg";
 import firebase_img from "./assets/images/firebase.svg";
-
 import nextjs_img from "./assets/images/nextjs.svg";
 import swift_img from "./assets/images/swift.png";
-import beauty_img from "./assets/images/beauty.png";
-import react_components from "./assets/images/react_components.png";
-import xbox_img from "./assets/images/xbox.png";
-import travel_img from "./assets/images/travel.png";
-import tinder_img from "./assets/images/tinder_itc.png";
-import tinder_img_2 from "./assets/images/tinder_itc_2.png";
-import tinder_img_3 from "./assets/images/tinder_itc_3.png";
-import king_img from "./assets/images/king_style.png";
-import auth_img from "./assets/images/auth_flutter.png";
-import you_movie_img from "./assets/images/you_movie.png";
-import you_movie_img_2 from "./assets/images/you_movie_2.png";
-import you_movie_img_3 from "./assets/images/you_movie_3.png";
-import calendar_img from "./assets/images/calendar.png";
-import quotation_img from "./assets/images/quotation.png";
-import semsa_logo from "./assets/images/semsa_logo.png";
 
 import SelectLang from "./components/SelectLang";
 
@@ -89,9 +55,8 @@ import TestimonialSlide from "./components/TestimonialSlide";
 import english from "./assets/languajes/englis.json";
 import spanish from "./assets/languajes/spanish.json";
 import CardProject from "./components/CardProject";
-
-
-
+import { AlertPositioned } from "./alerts/Alerts";
+import sendContact from "./services/sendContact";
 
 const skills = {
   Frontend: [html_img, css_img, js_img, ts_img, react_img, tailwind_img],
@@ -101,44 +66,102 @@ const skills = {
   DevOps: [aws_img, firebase_img],
   Learning: [swift_img, nextjs_img],
 };
+const sections = ["home", "about", "projects", "services", "contact"];
 
-const skillsImg = [
-  html_img,
-  css_img,
-  js_img,
-  ts_img,
-  react_img,
-  tailwind_img,
-  node_img,
-  php_img,
-  laravel_img,
-  java_img,
-  mysql_img,
-  mongo_img,
-  postgresql_img,
-  flutter_img,
-  aws_img,
-  firebase_img,
-];
+
+  const getInitialLang = () => {
+  const stored = localStorage.getItem("lang");
+  if (stored) return stored;
+  const nav = navigator.language.split("-")[0];
+  return nav === "es" ? "es" : "en";
+};
+
+const getInitialLanguaje = () => {
+  const lang = getInitialLang();
+  //console.log('lang ', lang)
+  return lang === "es" ? spanish : english;
+};
 
 function App() {
-  const [languaje, setLanguaje] = useState(english);
+  const [languaje, setLanguaje] = useState(getInitialLanguaje);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1098);
-
+  const [activeSection, setActiveSection] = useState("");
   const [showAllPro, setShowAllPro] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [fromCont, setFromCont] = useState("");
+  const [nameCont, setNameCont] = useState("");
+  const [textCont, setTextCont] = useState("");
 
   const maxProjects = 6;
+
+
+
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 1098);
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      let current = activeSection;
+
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const offsetTop = el.offsetTop;
+          const offsetBottom = offsetTop + el.offsetHeight;
+          if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+            current = id;
+            break;
+          }
+        }
+      }
+      if (current) {
+        //console.log(current)
+        setActiveSection(current);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleSlideChange = (swiper) => {
-    //console.log("holaaaa", swiper.realIndex);
     setActiveIndex(swiper.realIndex);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    const body = {
+      from: fromCont,
+      subject: nameCont,
+      text: textCont,
+    };
+
+    const response = await sendContact.send({ body });
+    //console.log("response", response);
+
+    if (response.error) {
+      AlertPositioned({
+        title: languaje.messagesAlert["error"].title,
+        text: languaje.messagesAlert["error"].msg,
+        icon: languaje.messagesAlert["error"].type,
+      });
+    } else {
+      AlertPositioned({
+        title: languaje.messagesAlert["success"].title,
+        text: languaje.messagesAlert["success"].msg,
+        icon: languaje.messagesAlert["success"].type,
+      });
+    }
+    setIsSending(false);
   };
 
   const iconsServices = {
@@ -170,38 +193,29 @@ function App() {
             <img src={logo} alt="logo" className="w-full h-full" />
           </div>
 
-          <ul className="flex gap-1 max-[768px]:hidden">
-            <li>
-              <button className="px-6 py-2 rounded-xl item-li">
-                {languaje.header.home}
-              </button>
-            </li>
-            <li>
-              <button className="px-6 py-2 rounded-xl item-li">
-                {languaje.header.about}
-              </button>
-            </li>
-            <li>
-              <button className="px-6 py-2 rounded-xl item-li">
-                {languaje.header.projects}
-              </button>
-            </li>
-            <li>
-              <button className="px-6 py-2 rounded-xl item-li">
-                {languaje.header.services}
-              </button>
-            </li>
-            <li>
-              <button className="px-6 py-2 rounded-xl item-li">
-                {languaje.header.contact}
-              </button>
-            </li>
+          <ul className="flex  items-center gap-1 max-[768px]:hidden">
+            {languaje.header.map((item) => {
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`px-6 py-2 rounded-xl item-li ${
+                      item.id === activeSection
+                        ? "text-[var(--first-color)]"
+                        : ""
+                    }`}
+                  >
+                    {item.text}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <div>
             <SelectLang
               onChange={(lan) => {
-                //console.log('está en inglés: ', lan)
                 const lang = lan ? english : spanish;
+                localStorage.setItem("lang", lan ? "en" : "es");
                 setLanguaje(lang);
               }}
             />
@@ -211,46 +225,74 @@ function App() {
 
       <section className="w-full h-[60px] div-nav fixed bottom-0 z-50 max-w-[650px] left-1/2 -translate-x-1/2 mb-2 rounded-xl px-4 max-[650px]:w-[calc(100%-2rem)] hidden max-[768px]:block">
         <div className="container flex justify-between items-center h-full">
-          <div className="h-full w-16  flex items-center justify-center">
-            <FaHouse className="h-full w-1/2" />
-          </div>
+          <a
+            className="h-full w-16  flex items-center justify-center"
+            href={`#home`}
+          >
+            <FaHouse
+              className={`h-full w-1/2 ${
+                "home" === activeSection ? "text-[var(--first-color)]" : ""
+              }`}
+            />
+          </a>
 
-          <div className="h-full w-16  flex items-center justify-center">
-            <FaUserTie className="h-full w-1/2" />
-          </div>
+          <a
+            className="h-full w-16  flex items-center justify-center"
+            href={`#about`}
+          >
+            <FaUserTie
+              className={`h-full w-1/2 ${
+                "about" === activeSection ? "text-[var(--first-color)]" : ""
+              }`}
+            />
+          </a>
 
-          <div className="h-full w-16  flex items-center justify-center">
-            <FaLaptop className="h-full w-1/2" />
-          </div>
+          <a
+            className="h-full w-16  flex items-center justify-center"
+            href={`#projects`}
+          >
+            <FaLaptop
+              className={`h-full w-1/2 ${
+                "projects" === activeSection ? "text-[var(--first-color)]" : ""
+              }`}
+            />
+          </a>
 
-          <div className="h-full w-16  flex items-center justify-center">
-            <FaCode className="h-full w-1/2" />
-          </div>
+          <a
+            className="h-full w-16  flex items-center justify-center"
+            href={`#services`}
+          >
+            <FaCode
+              className={`h-full w-1/2 ${
+                "services" === activeSection ? "text-[var(--first-color)]" : ""
+              }`}
+            />
+          </a>
 
-          <div className="h-full w-16  flex items-center justify-center">
-            <FaEnvelope className="h-full w-1/2" />
-          </div>
+          <a
+            className="h-full w-16  flex items-center justify-center"
+            href={`#contact`}
+          >
+            <FaEnvelope
+              className={`h-full w-1/2 ${
+                "contact" === activeSection ? "text-[var(--first-color)]" : ""
+              }`}
+            />
+          </a>
         </div>
       </section>
 
-      <section className="w-full mb-32 mt-[60px] pt-16 ">
-        {/* orange 
-        <div class="blur-bg"></div>
-        <div class="blur-bg-2"></div>
-        
-        */}
-
-        {/* checar*/}
+      <section id="home" className="w-full mb-32 mt-[60px] pt-16 ">
         <div className="container">
           {/* red */}
-          <div className="container-row">
+          <div className="container-row gap-y-8">
             <div className="w-full  flex flex-col items-start justify-center h-full relative !z-[1]">
               <div className="blur-bg pointer-events-none"></div>
-              <div className="relative border border-white px-4 py-2 w-fit typewriter-wrapper">
-                <div className="h-3 w-3 bg-white absolute -top-[6px] -left-[6px]" />
-                <div className="h-3 w-3 bg-white absolute -top-[6px] -right-[6px]" />
-                <div className="h-3 w-3 bg-white absolute -bottom-[6px] -right-[6px]" />
-                <div className="h-3 w-3 bg-white absolute -bottom-[6px] -left-[6px]" />
+              <div className="relative border border-[var(--text-color)] px-4 py-2 w-fit typewriter-wrapper">
+                <div className="h-3 w-3 border border-[var(--text-color)] bg-[var(--text-color)] absolute -top-[6px] -left-[6px]" />
+                <div className="h-3 w-3 border border-[var(--text-color)] bg-[var(--text-color)] absolute -top-[6px] -right-[6px]" />
+                <div className="h-3 w-3 border border-[var(--text-color)] bg-[var(--text-color)] absolute -bottom-[6px] -right-[6px]" />
+                <div className="h-3 w-3 border border-[var(--text-color)] bg-[var(--text-color)] absolute -bottom-[6px] -left-[6px]" />
                 <h1 className="typewriter h1-font-size">
                   {languaje.hero.sayHi}
                 </h1>
@@ -330,16 +372,18 @@ function App() {
             <div className="w-full relative overflow-hidden">
               {" "}
               {/* green*/}
-              <img
+              {/* 
+                <img
                 src={graph1}
                 alt="graph1"
                 className="absolute -bottom-24 w-full -z-[1] background-shape"
               />
-              <div className="w-full h-full flex flex-col justify-center items-center z-10">
+                */}
+              <div className="w-full h-full flex flex-col justify-center items-center z-10 rounded-lg">
                 <img
-                  src={user}
+                  src={yop}
                   alt="user"
-                  className="w-full h-full object-fill img-user "
+                  className="w-[400px] object-contain rounded-lg"
                 />
               </div>
             </div>
@@ -347,7 +391,10 @@ function App() {
         </div>
       </section>
 
-      <section className="w-full mb-32 pb-8 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16">
+      <section
+        id="about"
+        className="w-full mb-32 pb-8 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16"
+      >
         <div className="container ">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>{languaje.about.title}</b>
@@ -357,13 +404,13 @@ function App() {
             <div className="h-1 w-1/3 bg-white rounded-xl"></div>
           </div>
 
-          <div className="container-row mb-8">
+          <div className="container-row mb-8 gap-y-8">
             <div className="flex flex-col justify-center items-center">
-              <div className="h-[400px] w-[400px] bg-white rounded-circular overflow-hidden max-[600px]:!h-4/5 max-[600px]:!w-4/5">
+              <div className="h-[400px] w-[400px] bg-white rounded-circular overflow-hidden max-[600px]:!h-[200px] max-[600px]:!w-[200px]">
                 <img
-                  src={user}
+                  src={yop2}
                   alt="user"
-                  className="object-cover w-full h-full"
+                  className="object-contain w-[400px] h-[400px] max-[600px]:!h-[200px] max-[600px]:!w-[200px]"
                 />
               </div>
             </div>
@@ -403,7 +450,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32">
+      <section id="projects" className="w-screen mb-32">
         <div className="container relative">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>{languaje.projects.title}</b>
@@ -478,7 +525,10 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16 pb-20">
+      <section
+        id="services"
+        className="w-screen mb-32 bg-[var(--second-body-color)] pt-32 max-[768px]:pt-16 pb-20"
+      >
         <div className="container relative">
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
             <b>{languaje.services.title}</b>
@@ -511,7 +561,7 @@ function App() {
 
           <div className="w-full">
             <h2 className="h2-font-size text-[var(--first-color-alt)] font-bold mb-8 text-center">
-             {languaje.services.subtitle}
+              {languaje.services.subtitle}
             </h2>
             <div className="max-w-3xl mx-auto px-4 py-12 text-center">
               <p className="small-font-size text-[var(--sub-text-color)]">
@@ -566,7 +616,7 @@ function App() {
         </div>
       </section>
 
-      <section className="w-screen mb-32">
+      <section id="contact" className="w-screen mb-32">
         <div className="container relative">
           <div class="blur-bg-3 pointer-events-none"></div>
           <h1 className="h1-font-size text-[var(--first-color)] text-center">
@@ -578,18 +628,24 @@ function App() {
           </div>
 
           <div className="max-w-4xl mx-auto px-4 py-12">
-            <form className="bg-[var(--second-body-color)] shadow-md rounded-2xl p-6 space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-[var(--second-body-color)] shadow-md rounded-2xl p-6 space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="">
                   {languaje.contact.name}
                 </label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
-                  required
+                  required={true}
+                  value={nameCont}
                   className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
                   placeholder={languaje.contact.namePlaceholder}
+                  onChange={(e) => {
+                    setNameCont(e.target.value);
+                  }}
                 />
               </div>
 
@@ -599,11 +655,14 @@ function App() {
                 </label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
-                  required
+                  required={true}
+                  value={fromCont}
                   className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
                   placeholder={languaje.contact.emailPlaceholder}
+                  onChange={(e) => {
+                    setFromCont(e.target.value);
+                  }}
                 />
               </div>
 
@@ -615,18 +674,49 @@ function App() {
                   id="message"
                   name="message"
                   rows={4}
-                  required
+                  required={true}
                   className="mt-1 block w-full border-2 border-[var(--body-color)] bg-[var(--body-color)] rounded-xl shadow-sm px-4 py-2 focus:border-[var(--first-color-alt)] focus:outline-none"
                   placeholder={languaje.contact.messagePlaceholder}
+                  onChange={(e) => {
+                    setTextCont(e.target.value);
+                  }}
                 />
               </div>
 
-              <div className="text-center">
+              <div className="text-center flex items-center justify-center">
                 <button
-                  type="button"
-                  class="text-white bg-[var(--first-color)] hover:bg-[var(--second-color)] focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10"
+                  disabled={isSending}
+                  type="submit"
+                  className={`${
+                    isSending
+                      ? "opacity-75 cursor-progress"
+                      : "hover:bg-[var(--second-color)]"
+                  } flex items-center justify-center text-[var(--text-color)] bg-[var(--first-color)]  focus:outline-none focus:ring-4 focus:ring-[var(--second-color-alt)] font-medium rounded-full px-8 py-2.5 text-center me-2 mb-2 z-10`}
                 >
-                  {languaje.buttons.send}
+                  {isSending ? (
+                    <>
+                      <svg
+                        aria-hidden="true"
+                        role="status"
+                        class="inline w-4 h-4 me-3 text-[var(--text-color)] animate-spin"
+                        viewBox="0 0 100 101"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                          fill="#E5E7EB"
+                        />
+                        <path
+                          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      <span>{languaje.buttons.isSending}</span>
+                    </>
+                  ) : (
+                    <span>{languaje.buttons.send}</span>
+                  )}
                 </button>
               </div>
             </form>
@@ -638,7 +728,9 @@ function App() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8">
           {/* Branding */}
           <div>
-            <h3 className="font-bold text-[var(--text-color)] mb-2">MarcoSare.dev</h3>
+            <h3 className="font-bold text-[var(--text-color)] mb-2">
+              MarcoSare.dev
+            </h3>
             <p className="smaller-font-size text-[var(--sub-text-color)]">
               {languaje.footer.desc}
             </p>
@@ -646,20 +738,31 @@ function App() {
 
           {/* Navegación */}
           <div>
-            <h4 className="font-bold text-[var(--text-color)] mb-2">{languaje.footer.subtitle2}</h4>
+            <h4 className="font-bold text-[var(--text-color)] mb-2">
+              {languaje.footer.subtitle2}
+            </h4>
             <ul className="space-y-1 text-sm">
               <li>
-                <a href="#inicio" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
+                <a
+                  href="#inicio"
+                  className="hover:underline smaller-font-size text-[var(--sub-text-color)]"
+                >
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
+                <a
+                  href="#proyectos"
+                  className="hover:underline smaller-font-size text-[var(--sub-text-color)]"
+                >
                   Proyectos
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="hover:underline smaller-font-size text-[var(--sub-text-color)]">
+                <a
+                  href="#contacto"
+                  className="hover:underline smaller-font-size text-[var(--sub-text-color)]"
+                >
                   Contacto
                 </a>
               </li>
@@ -668,31 +771,33 @@ function App() {
 
           {/* Redes sociales */}
           <div>
-            <h4 className="font-bold text-[var(--text-color)] mb-4">{languaje.footer.subtitle3}</h4>
+            <h4 className="font-bold text-[var(--text-color)] mb-4">
+              {languaje.footer.subtitle3}
+            </h4>
             <div className="flex gap-4 mt-2 flex-wrap justify-start items-center">
               <a
                 href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaGithub className="text-[var(--sub-text-color)] w-6 h-6"/>
+                <FaGithub className="text-[var(--sub-text-color)] w-6 h-6" />
               </a>
-              
+
               <a
                 href="https://github.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaLinkedin className="text-[var(--sub-text-color)] w-6 h-6"/>
+                <FaLinkedin className="text-[var(--sub-text-color)] w-6 h-6" />
               </a>
 
               <div className="flex justify-start items-center p-2 bg-[var(--body-color)] rounded-lg gap-4">
-                <FaEnvelope className="text-[var(--sub-text-color)] w-6 h-6"/>
-                <span className="smaller-font-size text-[var(--sub-text-color)]">marcoramirez3700@gmail.com</span>
-                <FaCopy className="text-[var(--sub-text-color)] w-4 h-4 hover:cursor-pointer"/>
-
+                <FaEnvelope className="text-[var(--sub-text-color)] w-6 h-6" />
+                <span className="smaller-font-size text-[var(--sub-text-color)]">
+                  marcoramirez3700@gmail.com
+                </span>
+                <FaCopy className="text-[var(--sub-text-color)] w-4 h-4 hover:cursor-pointer" />
               </div>
-
             </div>
           </div>
         </div>
@@ -706,76 +811,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-<div className="container-w-full h-[500px] bg-red-600">
-       <div className="container h-[200px] bg-black">
-        <h1 className="biggest-font-size">Hola</h1>
-       </div>
-    </div>
-
-
-
-    <div className="w-[550px] h-[550px] blur-xl">
-            <img src={graph1} alt="graph1" className="w-full h-full"/>
-          </div>
-          <div className="w-[550px] h-[550px] blur-xl">
-            <img src={graph} alt="graph2" className="w-full h-full"/>
-          </div>
-
-
-
-          <Marquee gradient={false} speed={60}>
-            {skillsImg.map((skill) => (
-              <div key={skill} className="mx-4  h-[65px] w-[65px]">
-                <img
-                  src={skill}
-                  alt={skill}
-                  className="w-full h-full object-cover mx-4"
-                />
-              </div>
-            ))}
-          </Marquee>  
-*/
-
-/* 
-
- <div className="bg-cristal rounded-xl  min-h-[300px] flex flex-col items-start justify-start px-8 py-12  relative">
-              <div className="absolute left-12 group  overflow-hidden border w-12 h-12 rounded-full flex justify-center items-center cursor-pointer box-shadow z-[1] bg-white">
-                <FaGithub className="w-3/4 h-3/4 text-black" />
-                <div className="absolute bottom-0 left-0 w-full h-full bg-[#d7266d7c] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-                <div className="absolute bottom-4 left-4 text-white z-10"></div>
-              </div>
-
-              <div className="h-[400px] mb-8"></div>
-              <h2 className="h3-font-size mb-4">
-                <b>Frontend development</b>
-              </h2>
-              <p className="small-font-size text-[var(--sub-text-color)] mb-4">
-                I create modern, responsive, and high-performance websites
-                tailored to your needs. From simple landing pages to dynamic web
-                applications, I ensure clean code, great user experience, and
-                seamless functionality across all devices. I create modern,
-                responsive, and high-performance websites tailored to your
-                needs. From simple landing pages to dynamic web applications, I
-                ensure clean code, great user experience, and seamless
-                functionality across all devices.
-              </p>
-
-              <div className="flex  flex-wrap gap-4">
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Flutter
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Dart
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  FireBase
-                </div>
-                <div className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-black">
-                  Node.js
-                </div>
-              </div>
-            </div>
-
-*/

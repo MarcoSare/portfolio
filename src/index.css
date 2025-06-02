@@ -22,17 +22,26 @@
 :root {
 
 
- --first-color:        #be024e;    /* rosa fuerte (ya lo usas, mantenlo) */
---second-color:       #3c00a0;    /* púrpura brillante (contraste visual) */
+  --first-color: #be024e;
+  /* rosa fuerte (ya lo usas, mantenlo) */
+  --second-color: #5A0837;
+  /* púrpura brillante (contraste visual) */
 
---first-color-alt:    #ff6a8b;    /* rosa más claro para hover o botones suaves */
---second-color-alt:   #7645ff;    /* lavanda intensa para acentos secundarios */
+  --first-color-alt: #ff6a8b;
+  /* rosa más claro para hover o botones suaves */
+  --second-color-alt: #830c4f;
+  /* lavanda intensa para acentos secundarios */
 
---text-color:         #eaeaf2;    /* blanco azulado suave */
---sub-text-color:     #afafb3; 
+  --text-color: #eaeaf2;
+  /* blanco azulado suave */
+  --sub-text-color: #afafb3;
   --body-color: #0f0f1a;
-  --second-body-color: #0a0a11;	
-  --thirty-body-color: #040407;	
+  --second-body-color: #0a0a11;
+  --thirty-body-color: #040407;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 
@@ -202,14 +211,14 @@ body {
 
 
 .bg-gra {
- background: linear-gradient(135deg, #be024e, #ff7d7d, #2e0249);
+  background: linear-gradient(135deg, #be024e, #ff7d7d, #2e0249);
 }
 
 .bg-gra-2 {
   background: linear-gradient(to right, #be024e, #ff6ec4, #2b2d42);
 }
 
-.bg-gra-3{
+.bg-gra-3 {
   background: linear-gradient(135deg, #be024e, #ff6a8b, #3c005a);
 
 }
@@ -283,6 +292,31 @@ body {
   background: radial-gradient(circle at top right, rgba(34, 102, 175, 0.2), transparent 70%);
 }
 
+.alert {
+  background-color: var(--body-color) !important;
+  color: var(--text-color) !important;
+  font-family: 'Arial', sans-serif;
+  border-radius: 0.75rem;
+}
+
+
+.alert .swal2-title {
+  color: var(--text-color) !important;
+  font-weight: bold;
+}
+
+.alert .swal2-html-container {
+  color: var(--sub-text-color) !important;
+}
+
+.block-ui {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.3); /* fondo opcional */
+  pointer-events: all;            /* lo importante */
+  touch-action: none;             /* bloquea touch */
+}
 
 
 

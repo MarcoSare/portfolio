@@ -1,12 +1,26 @@
 {
-  "header": {
-    "about": "Acerca de",
-    "home": "Inicio",
-    "projects": "Proyectos",
-    "services": "Servicios",
-    "contact": "Contacto"
-  },
-
+  "header": [
+    {
+      "text": "Inicio",
+      "id": "home"
+    },
+    {
+      "text": "Acerca de",
+      "id": "about"
+    },
+    {
+      "text": "Proyectos",
+      "id": "projects"
+    },
+    {
+      "text": "Servicios",
+      "id": "services"
+    },
+    {
+      "text": "Contacto",
+      "id": "contact"
+    }
+  ],
   "hero": {
     "sayHi": "¡Hola!",
     "p1": "Soy",
@@ -241,14 +255,27 @@
     "message": "Mensaje",
     "messagePlaceholder": "Escribe tu mensaje aquí... "
   },
-  "footer" : {
-    "desc" : "Desarrollador web y móvil creando experiencias modernas.",
-    "subtitle2" : "Enlaces",
-     "subtitle3" : "Sígueme"
+  "footer": {
+    "desc": "Desarrollador web y móvil creando experiencias modernas.",
+    "subtitle2": "Enlaces",
+    "subtitle3": "Sígueme"
   },
-  "buttons" : {
-    "resume" : "Descargar CV",
-    "showAll" : "Mostrar todo",
-    "send" : "Enviar"
+  "buttons": {
+    "resume": "Descargar CV",
+    "showAll": "Mostrar todo",
+    "send": "Enviar",
+    "isSending" : "Enviando..."
+  },
+   "messagesAlert" : {
+    "success" : {
+       "type" : "success",
+      "title" : "Éxito",
+      "msg" : "El correo electrónico ha sido enviado exitosamente, me pondré en contacto contigo lo antes posible, gracias."
+    },
+    "error" : {
+      "type" : "error",
+      "title" : "Error",
+      "msg" : "El correo no ha sido enviado, por favor inténtalo más tarde o contacta conmigo a través de otra de mis redes sociales."
+    }
   }
 }

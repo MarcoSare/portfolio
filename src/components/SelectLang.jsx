@@ -4,9 +4,23 @@ import en_img from "../assets/images/en_usa.png";
 import es_img from "../assets/images/es_mx.png";
 import { FaChevronDown } from "react-icons/fa6";
 
+
+  const getInitialLang = () => {
+  const stored = localStorage.getItem("lang");
+  if (stored) return stored;
+  const nav = navigator.language.split("-")[0];
+  return nav === "es" ? "es" : "en";
+};
+
+const getInitialLanguaje = () => {
+  const lang = getInitialLang();
+  //console.log('lang ', lang)
+  return lang === "es" ? false : true;
+};
+
 function SelectLang({onChange}) {
   const [focused, setFocused] = useState(false);
-  const [isEng, setIsEng] = useState(true);
+  const [isEng, setIsEng] = useState(getInitialLanguaje);
 
   return (
     <div

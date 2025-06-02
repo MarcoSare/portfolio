@@ -1,11 +1,26 @@
 {
-  "header": {
-    "about": "About me",
-    "home": "Home",
-    "projects": "Projects",
-    "services": "Services",
-    "contact": "Contact"
-  },
+  "header": [
+    {
+      "text" : "Home",
+      "id": "home"
+    },
+    {
+      "text" : "About me",
+      "id" : "about"
+    }, 
+    {
+      "text" : "Projects",
+      "id" : "projects"
+    },
+    {
+      "text" : "Services",
+      "id" : "services"
+    },
+    {
+      "text" : "Contact",
+      "id" : "contact"
+    }
+  ],
   "hero": {
     "sayHi": "Hello!",
     "p1": "I'm",
@@ -251,7 +266,21 @@
   "buttons" : {
     "resume" : "Download resume",
     "showAll" : "Show all",
-    "send" : "Send"
+    "send" : "Send",
+    "isSending" : "Sending..."
+  },
+
+  "messagesAlert" : {
+    "success" : {
+      "type" : "success",
+      "title" : "Success",
+      "msg" : "The email has been sent successfully, I will contact you as soon as possible, thank you."
+    },
+    "error" : {
+      "type" : "error",
+      "title" : "Error",
+      "msg" : "The email has not been sent, please try again later or contact me through another of my social networks."
+    }
   }
 
 }
