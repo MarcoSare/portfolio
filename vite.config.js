@@ -8,4 +8,5 @@ export default defineConfig({
     port: 5173, // Puedes cambiar el puerto si lo deseas
   },
   plugins: [react()],
+  base: '/portfolio/'
 })
